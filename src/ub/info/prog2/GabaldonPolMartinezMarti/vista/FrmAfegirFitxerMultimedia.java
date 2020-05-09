@@ -7,15 +7,14 @@ package ub.info.prog2.GabaldonPolMartinezMarti.vista;
 
 /**
  *
- * @author polg24
+ * @author marti
  */
-public class FrmAfegirFitxerMultimedia extends javax.swing.JDialog {
+public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmAfegirFitxerMultimedia
      */
-    public FrmAfegirFitxerMultimedia(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public FrmAfegirFitxerMultimedia() {
         initComponents();
     }
 
@@ -28,7 +27,7 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,17 +70,10 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrmAfegirFitxerMultimedia dialog = new FrmAfegirFitxerMultimedia(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new FrmAfegirFitxerMultimedia().setVisible(true);
             }
         });
     }
