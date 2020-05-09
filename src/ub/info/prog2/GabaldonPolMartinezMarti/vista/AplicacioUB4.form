@@ -3,6 +3,9 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="f1" green="f1" red="f2" type="rgb"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -23,13 +26,123 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnAfegirFitxerRepositori" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAfegirFitxerPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCrearPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEliminarPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEliminarFitxerPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEliminarFitxer" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="189" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnPlayFitRepositori" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnPlayPortafoli" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnPlayRepositori1" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkCiclica" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkReverse" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnAfegirFitxerRepositori" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnAfegirFitxerPortafoli" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnCrearPortafoli" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnPlayFitRepositori" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnPlayRepositori1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnEliminarPortafoli" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnPlayPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnEliminarFitxer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkCiclica" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnEliminarFitxerPortafoli" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkReverse" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="280" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="btnAfegirFitxerRepositori">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Afegir un Fitxer al Repositori"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEliminarFitxer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar Fitxer seleccionat del Repositori"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCrearPortafoli">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Crear Portafoli"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEliminarPortafoli">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar Portafoli"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAfegirFitxerPortafoli">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Afegir un Fitxer a un Portafoli"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEliminarFitxerPortafoli">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar Fitxer seleccionat d&apos;un Portafoli"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPlayFitRepositori">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reproduir el Fitxer seleccionat del Repositori"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPlayPortafoli">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reproduir el Portafoli seleccionat"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPlayRepositori1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reproduir el Repositori"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="chkCiclica">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reproduccio C&#xed;clica"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="chkReverse">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reproduccio Reverse"/>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>
