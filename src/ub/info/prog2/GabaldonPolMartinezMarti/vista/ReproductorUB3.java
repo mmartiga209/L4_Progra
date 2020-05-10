@@ -344,6 +344,7 @@ public class ReproductorUB3 {
 
         } while(opcio!=ReproductorUB3.OpcionsAfegirFitxer.MENU_ANTERIOR);
     }
+    
     /**
      * Menú encarregat de mostrar les opcions relacionades amb la reproducció
      * @param sc Objecte de tipus Scanner per fer l'entrada de dades
