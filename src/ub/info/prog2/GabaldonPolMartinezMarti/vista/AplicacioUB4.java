@@ -5,17 +5,22 @@
  */
 package ub.info.prog2.GabaldonPolMartinezMarti.vista;
 
+import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Controlador;
+import ub.info.prog2.utils.ReproException;
 /**
  *
  * @author polg24
  */
 public class AplicacioUB4 extends javax.swing.JFrame {
 
+    private Controlador controlador;
     /**
      * Creates new form AplicacioUB4
      */
     public AplicacioUB4() {
         initComponents();
+        controlador = new Controlador();
+        btnCrearPortafoli.setEnabled(false);
     }
 
     /**
@@ -38,6 +43,16 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         btnPlayRepositori1 = new javax.swing.JButton();
         chkCiclica = new javax.swing.JCheckBox();
         chkReverse = new javax.swing.JCheckBox();
+        btnPlay = new javax.swing.JButton();
+        btnPause = new javax.swing.JButton();
+        btnAtura = new javax.swing.JButton();
+        btn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstRepositori = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstPortafoli = new javax.swing.JList<>();
+        cmbPortafolis = new javax.swing.JComboBox<>();
+        txtTitolPortafoli = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(242, 241, 241));
@@ -65,61 +80,133 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
         chkReverse.setText("Reproduccio Reverse");
 
+        btnPlay.setText("Play");
+
+        btnPause.setText("Pause");
+
+        btnAtura.setText("Atura");
+
+        btn.setText("Salta");
+
+        jScrollPane1.setViewportView(lstRepositori);
+
+        jScrollPane2.setViewportView(lstPortafoli);
+
+        cmbPortafolis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        txtTitolPortafoli.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTitolPortafoliKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAfegirFitxerRepositori)
-                    .addComponent(btnAfegirFitxerPortafoli)
-                    .addComponent(btnCrearPortafoli)
-                    .addComponent(btnEliminarPortafoli)
-                    .addComponent(btnEliminarFitxerPortafoli)
-                    .addComponent(btnEliminarFitxer))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPlayFitRepositori)
-                    .addComponent(btnPlayPortafoli)
-                    .addComponent(btnPlayRepositori1)
-                    .addComponent(chkCiclica)
-                    .addComponent(chkReverse))
-                .addGap(70, 70, 70))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(276, 276, 276)
+                        .addComponent(btnAfegirFitxerRepositori))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnEliminarFitxer)
+                                    .addComponent(btnEliminarPortafoli)
+                                    .addComponent(btnEliminarFitxerPortafoli)
+                                    .addComponent(btnAfegirFitxerPortafoli))
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnPlayPortafoli)
+                                    .addComponent(btnPlayFitRepositori)
+                                    .addComponent(btnPlayRepositori1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtTitolPortafoli)
+                                            .addComponent(btnCrearPortafoli, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cmbPortafolis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(103, 103, 103))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(360, 360, 360)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(chkReverse)
+                                            .addComponent(chkCiclica)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnPlay)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(btnPause)
+                                        .addGap(55, 55, 55)
+                                        .addComponent(btnAtura)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(btn)))))))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAfegirFitxerRepositori)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAfegirFitxerPortafoli)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCrearPortafoli))
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAfegirFitxerRepositori)
+                            .addComponent(cmbPortafolis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(txtTitolPortafoli)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAfegirFitxerPortafoli)
+                            .addComponent(btnCrearPortafoli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(74, 74, 74)
+                        .addComponent(btnEliminarPortafoli)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEliminarFitxer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEliminarFitxerPortafoli)
+                        .addGap(79, 79, 79)
                         .addComponent(btnPlayFitRepositori)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPlayRepositori1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminarPortafoli)
-                    .addComponent(btnPlayPortafoli))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminarFitxer)
-                    .addComponent(chkCiclica))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEliminarFitxerPortafoli)
-                    .addComponent(chkReverse))
-                .addContainerGap(280, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPlayRepositori1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPlayPortafoli)
+                        .addGap(95, 95, 95)
+                        .addComponent(chkCiclica)
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnPlay)
+                                    .addComponent(btnPause)
+                                    .addComponent(btnAtura)
+                                    .addComponent(btn))
+                                .addGap(12, 12, 12))
+                            .addComponent(chkReverse))
+                        .addGap(26, 26, 26))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtTitolPortafoliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTitolPortafoliKeyReleased
+        btnCrearPortafoli.setEnabled(!txtTitolPortafoli.getText().equals(""));
+    }//GEN-LAST:event_txtTitolPortafoliKeyReleased
 
     /**
      * @param args the command line arguments
@@ -157,16 +244,26 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn;
     private javax.swing.JButton btnAfegirFitxerPortafoli;
     private javax.swing.JButton btnAfegirFitxerRepositori;
+    private javax.swing.JButton btnAtura;
     private javax.swing.JButton btnCrearPortafoli;
     private javax.swing.JButton btnEliminarFitxer;
     private javax.swing.JButton btnEliminarFitxerPortafoli;
     private javax.swing.JButton btnEliminarPortafoli;
+    private javax.swing.JButton btnPause;
+    private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnPlayFitRepositori;
     private javax.swing.JButton btnPlayPortafoli;
     private javax.swing.JButton btnPlayRepositori1;
     private javax.swing.JCheckBox chkCiclica;
     private javax.swing.JCheckBox chkReverse;
+    private javax.swing.JComboBox<String> cmbPortafolis;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> lstPortafoli;
+    private javax.swing.JList<String> lstRepositori;
+    private javax.swing.JTextField txtTitolPortafoli;
     // End of variables declaration//GEN-END:variables
 }
