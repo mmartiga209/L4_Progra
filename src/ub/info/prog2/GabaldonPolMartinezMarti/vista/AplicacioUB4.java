@@ -7,6 +7,7 @@ package ub.info.prog2.GabaldonPolMartinezMarti.vista;
 
 import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Controlador;
 import ub.info.prog2.utils.ReproException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author polg24
@@ -62,6 +63,11 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         btnEliminarFitxer.setText("Eliminar Fitxer seleccionat del Repositori");
 
         btnCrearPortafoli.setText("Crear Portafoli");
+        btnCrearPortafoli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearPortafoliActionPerformed(evt);
+            }
+        });
 
         btnEliminarPortafoli.setText("Eliminar Portafoli");
 
@@ -207,6 +213,17 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     private void txtTitolPortafoliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTitolPortafoliKeyReleased
         btnCrearPortafoli.setEnabled(!txtTitolPortafoli.getText().equals(""));
     }//GEN-LAST:event_txtTitolPortafoliKeyReleased
+
+    private void btnCrearPortafoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPortafoliActionPerformed
+        try {
+            controlador.addPortafoli(txtTitolPortafoli.getText());
+            txtTitolPortafoli.setText("");
+            btnCrearPortafoli.setEnabled(false);
+        }
+        catch (ReproException e) {
+            JOptionPane.showMessageDialog(this, e.toString());
+        }
+    }//GEN-LAST:event_btnCrearPortafoliActionPerformed
 
     /**
      * @param args the command line arguments
