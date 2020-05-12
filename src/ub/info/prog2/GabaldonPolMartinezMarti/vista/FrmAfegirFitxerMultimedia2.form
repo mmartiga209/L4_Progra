@@ -179,6 +179,7 @@
     <Component class="javax.swing.JTextField" name="txtAutor">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAutorActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAutorKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCodec">
@@ -190,6 +191,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtMultius1">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMultius1KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtMultius2">
       <Events>

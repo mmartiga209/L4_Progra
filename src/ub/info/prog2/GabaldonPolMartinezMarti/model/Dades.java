@@ -122,7 +122,7 @@ public class Dades implements Serializable{
             repositori.addFitxer(imatge);
         }
         else
-            throw new ReproException("Error a l'afegir el fitxer.");
+            throw new ReproException("Error a l'afegir el fitxer. Els fitxers d'imatge acceptats són els .png, .jpg o .jpeg.");
     }
     
     /**

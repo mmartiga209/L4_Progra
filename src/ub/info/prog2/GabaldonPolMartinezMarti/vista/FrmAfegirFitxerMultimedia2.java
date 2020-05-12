@@ -7,18 +7,22 @@ package ub.info.prog2.GabaldonPolMartinezMarti.vista;
 
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Controlador;
+import ub.info.prog2.utils.ReproException;
 
 /**
  *
  * @author marti
  */
 public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
-
+    private Controlador controlador;
     /**
      * Creates new form FrmAfegirFitxerMultimedia2
      */
-    public FrmAfegirFitxerMultimedia2(java.awt.Frame parent, boolean modal) {
+    public FrmAfegirFitxerMultimedia2(java.awt.Frame parent, boolean modal, Controlador controlador) {
         super(parent, modal);
+        this.controlador = controlador;
         initComponents();
         lblCami.setVisible(false);
         lblAutor.setVisible(false);
@@ -33,6 +37,7 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         btnSelecciona1.setVisible(false);
         btnSelecciona2.setVisible(false);
         btnAcceptar.setVisible(false);
+        btnAcceptar.setEnabled(false);
                 
         
     }
@@ -103,11 +108,22 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
                 txtAutorActionPerformed(evt);
             }
         });
+        txtAutor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAutorKeyReleased(evt);
+            }
+        });
 
         txtCodec.setEditable(false);
         txtCodec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodecActionPerformed(evt);
+            }
+        });
+
+        txtMultius1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMultius1KeyReleased(evt);
             }
         });
 
@@ -268,8 +284,10 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         fitxer=seleccio.getSelectedFile();
         //Posem la ruta del fitxer al quadre de text
         txtCami.setText(fitxer.toString());
-        txtCodec.setText(fitxer.toString().substring(fitxer.toString().length()-4,fitxer.toString().length()));
-        }        
+        txtCodec.setText(fitxer.toString().substring(fitxer.toString().lastIndexOf(".")));
+        }
+        btnAcceptar.setEnabled( !(txtMultius1.getText().equals("") || txtMultius2.getText().equals("") || txtAutor.getText().equals("") || txtCami.getText().equals("")));
+        
     }//GEN-LAST:event_btnSelecciona1ActionPerformed
 
     private void btnSelecciona2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecciona2ActionPerformed
@@ -288,12 +306,26 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         //Posem la ruta del fitxer al quadre de text
         txtMultius1.setText(fitxer.toString());
         }           
+        btnAcceptar.setEnabled( !(txtMultius1.getText().equals("") || txtMultius2.getText().equals("") || txtAutor.getText().equals("") || txtCami.getText().equals("")));
+
     }//GEN-LAST:event_btnSelecciona2ActionPerformed
 
     private void btnAcceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptarActionPerformed
         // TODO add your handling code here:
         //Tanca la finestra de dialeg
-        this.dispose();
+        try{
+            if(((String)cmbTipusFitxer.getSelectedItem()).equals("Imatge")){
+                controlador.addImatge(txtCami.getText(), txtAutor.getText(), txtCodec.getText(),Integer.parseInt(txtMultius1.getText()) , Integer.parseInt(txtMultius2.getText()));
+                this.dispose();        
+            }
+            else{
+                controlador.addAudio(txtCami.getText(), txtMultius1.getText(), txtAutor.getText(), txtCodec.getText(), Integer.parseInt(txtMultius2.getText()));
+            }
+        }
+        catch(ReproException e){
+            JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir", JOptionPane.ERROR_MESSAGE);
+            
+        }
     }//GEN-LAST:event_btnAcceptarActionPerformed
 
     private void btnAfegirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfegirActionPerformed
@@ -304,8 +336,8 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
             lblCodec.setVisible(true);
             lblMultius1.setVisible(true);
             lblMultius2.setVisible(true);            
-            lblMultius1.setText("Píxels amplada");
-            lblMultius2.setText("Píxels alçada");
+            lblMultius1.setText("Píxels alçada");
+            lblMultius2.setText("Píxels amplada");
             txtAutor.setVisible(true);
             txtCami.setVisible(true);
             txtCodec.setVisible(true);
@@ -365,7 +397,28 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         } else {
            txtMultius2.setText("");
         }
+        btnAcceptar.setEnabled( !(txtMultius1.getText().equals("") || txtMultius2.getText().equals("") || txtAutor.getText().equals("") || txtCami.getText().equals("")));
+        
     }//GEN-LAST:event_txtMultius2KeyReleased
+
+    private void txtMultius1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMultius1KeyReleased
+        // TODO add your handling code here:
+        String value = txtMultius1.getText();
+        int l = value.length();
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+
+        } else {
+           txtMultius1.setText("");
+        }
+        btnAcceptar.setEnabled( !(txtMultius1.getText().equals("") || txtMultius2.getText().equals("") || txtAutor.getText().equals("") || txtCami.getText().equals("")));
+
+    }//GEN-LAST:event_txtMultius1KeyReleased
+
+    private void txtAutorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAutorKeyReleased
+        // TODO add your handling code here:
+        btnAcceptar.setEnabled( !(txtMultius1.getText().equals("") || txtMultius2.getText().equals("") || txtAutor.getText().equals("") || txtCami.getText().equals("")));
+        
+    }//GEN-LAST:event_txtAutorKeyReleased
 
     /**
      * @param args the command line arguments
@@ -397,7 +450,8 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrmAfegirFitxerMultimedia2 dialog = new FrmAfegirFitxerMultimedia2(new javax.swing.JFrame(), true);
+                Controlador controlador = new Controlador();
+                FrmAfegirFitxerMultimedia2 dialog = new FrmAfegirFitxerMultimedia2(new javax.swing.JFrame(), true, controlador);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
