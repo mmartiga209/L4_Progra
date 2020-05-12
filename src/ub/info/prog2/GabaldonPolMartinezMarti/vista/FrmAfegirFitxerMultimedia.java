@@ -18,6 +18,21 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
     public FrmAfegirFitxerMultimedia() {
         initComponents();
         temp = new ArxiuTemporal();
+        cmbTipus.setEnabled(true);
+        jLabel2.setVisible(false);
+        jLabel3.setVisible(false);
+        jLabel4.setVisible(false);
+        jLabel5.setVisible(false);
+        jLabel6.setVisible(false);
+        txtAutor.setVisible(false);
+        txtCami.setVisible(false);
+        txtCodec.setVisible(false);
+        txtMultius1.setVisible(false);
+        txtMultius2.setVisible(false);
+        btnAfegir.setVisible(false);
+        btnCancelar.setText("Cancela");
+
+        
     }
 
     /**
@@ -29,12 +44,12 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtPixelsAmpl = new javax.swing.JTextField();
-        txtPixelsAlc = new javax.swing.JTextField();
+        txtMultius1 = new javax.swing.JTextField();
+        txtMultius2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jcbTipus = new javax.swing.JComboBox<>();
+        cmbTipus = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -47,16 +62,14 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtPixelsAmpl.setEditable(false);
-        txtPixelsAmpl.setText("PixelsAmpl");
-        txtPixelsAmpl.addActionListener(new java.awt.event.ActionListener() {
+        txtMultius1.setEditable(false);
+        txtMultius1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPixelsAmplActionPerformed(evt);
+                txtMultius1ActionPerformed(evt);
             }
         });
 
-        txtPixelsAlc.setEditable(false);
-        txtPixelsAlc.setText("PixelsAlcada");
+        txtMultius2.setEditable(false);
 
         jLabel2.setText("Cami");
 
@@ -64,10 +77,10 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
 
         jLabel4.setText("Codec");
 
-        jcbTipus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Imatge", "Audio" }));
-        jcbTipus.addActionListener(new java.awt.event.ActionListener() {
+        cmbTipus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Imatge", "Audio" }));
+        cmbTipus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbTipusActionPerformed(evt);
+                cmbTipusActionPerformed(evt);
             }
         });
 
@@ -92,7 +105,6 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
         });
 
         txtCami.setEditable(false);
-        txtCami.setText("Cami");
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +114,6 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
         });
 
         txtCodec.setEditable(false);
-        txtCodec.setText("Codec");
         txtCodec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodecActionPerformed(evt);
@@ -110,7 +121,6 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
         });
 
         txtAutor.setEditable(false);
-        txtAutor.setText("Autor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,7 +134,7 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
-                                .addComponent(jcbTipus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbTipus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSelecciona))))
                     .addGroup(layout.createSequentialGroup()
@@ -138,8 +148,8 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtPixelsAlc, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                                .addComponent(txtPixelsAmpl)
+                                .addComponent(txtMultius2, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                                .addComponent(txtMultius1)
                                 .addComponent(txtAutor)
                                 .addComponent(txtCami))
                             .addComponent(txtCodec, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -158,7 +168,7 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbTipus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTipus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSelecciona))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -174,11 +184,11 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPixelsAmpl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMultius1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPixelsAlc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMultius2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -190,17 +200,18 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPixelsAmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPixelsAmplActionPerformed
+    private void txtMultius1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMultius1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPixelsAmplActionPerformed
+    }//GEN-LAST:event_txtMultius1ActionPerformed
 
-    private void jcbTipusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipusActionPerformed
+    private void cmbTipusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbTipusActionPerformed
+    }//GEN-LAST:event_cmbTipusActionPerformed
 
     private void btnSeleccionaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionaActionPerformed
         // TODO add your handling code here:
          //Creem la finestra de dialog
+        if(((String)cmbTipus.getSelectedItem()).equals("Imatge")){
         DialogAfegirImatge dialog = new DialogAfegirImatge(this,true,temp);
         //Titol de la finestra
         dialog.setTitle("Informació d'arxiu");
@@ -210,9 +221,24 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
         //Actualitza els camps de text
         txtAutor.setText(temp.getAutor());
         txtCami.setText(temp.getCami());
-        txtPixelsAlc.setText(Integer.toString(temp.getPixelsAlsada()));
-        txtPixelsAmpl.setText(Integer.toString(temp.getPixelsAmplada()));
+        txtMultius2.setText(Integer.toString(temp.getPixelsAlsada()));
+        txtMultius1.setText(Integer.toString(temp.getPixelsAmplada()));
         txtCodec.setText(temp.getCodec());
+        }
+        else{
+        DialogAfegirAudio dialog = new DialogAfegirAudio(this,true,temp);
+        //Titol de la finestra
+        dialog.setTitle("Informació d'arxiu");
+        //Mostra la finestra
+        dialog.pack();
+        dialog.setVisible(true);
+        //Actualitza els camps de text
+        txtAutor.setText(temp.getAutor());
+        txtCami.setText(temp.getCami());
+        txtMultius2.setText(Integer.toString(temp.getPixelsAlsada()));
+        txtMultius1.setText(Integer.toString(temp.getPixelsAmplada()));
+        txtCodec.setText(temp.getCodec());            
+        }
         
         
     }//GEN-LAST:event_btnSeleccionaActionPerformed
@@ -234,56 +260,56 @@ public class FrmAfegirFitxerMultimedia extends javax.swing.JFrame {
 //    /**
 //     * @param args the command line arguments
 //     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(FrmAfegirFitxerMultimedia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(FrmAfegirFitxerMultimedia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(FrmAfegirFitxerMultimedia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(FrmAfegirFitxerMultimedia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new FrmAfegirFitxerMultimedia().setVisible(true);
-//            }
-//        });
-//    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrmAfegirFitxerMultimedia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrmAfegirFitxerMultimedia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrmAfegirFitxerMultimedia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmAfegirFitxerMultimedia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrmAfegirFitxerMultimedia().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAfegir;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSelecciona;
+    private javax.swing.JComboBox<String> cmbTipus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JComboBox<String> jcbTipus;
     private javax.swing.JTextField txtAutor;
     private javax.swing.JTextField txtCami;
     private javax.swing.JTextField txtCodec;
-    private javax.swing.JTextField txtPixelsAlc;
-    private javax.swing.JTextField txtPixelsAmpl;
+    private javax.swing.JTextField txtMultius1;
+    private javax.swing.JTextField txtMultius2;
     // End of variables declaration//GEN-END:variables
 }

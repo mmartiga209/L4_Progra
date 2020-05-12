@@ -5,18 +5,22 @@
  */
 package ub.info.prog2.GabaldonPolMartinezMarti.vista;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author marti
  */
 public class DialogAfegirAudio extends javax.swing.JDialog {
-
+    ArxiuTemporal temp;
     /**
      * Creates new form DialogAfegirFitxer
      */
-    public DialogAfegirAudio(java.awt.Frame parent, boolean modal) {
+    public DialogAfegirAudio(java.awt.Frame parent, boolean modal, ArxiuTemporal temp) {
         super(parent, modal);
         initComponents();
+        this.temp = temp;
     }
 
     /**
@@ -28,65 +32,191 @@ public class DialogAfegirAudio extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtKbps = new javax.swing.JTextField();
+        txtCodec = new javax.swing.JTextField();
+        btnAccepta = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnCancela = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btnSelecciona = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtCamiFitxer = new javax.swing.JTextField();
+        txtCamiImatge = new javax.swing.JTextField();
+        txtAutor = new javax.swing.JTextField();
+        btnSelecciona1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        btnAccepta.setText("Accepta");
+        btnAccepta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Cami");
+
+        btnCancela.setText("Cancela");
+        btnCancela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Cami imatge");
+
+        btnSelecciona.setText("Selecciona");
+        btnSelecciona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionaActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Autor");
+
+        jLabel4.setText("Kbps");
+
+        jLabel5.setText("Codec");
+
+        txtCamiFitxer.setEditable(false);
+
+        txtCamiImatge.setEditable(false);
+
+        btnSelecciona1.setText("Selecciona");
+        btnSelecciona1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecciona1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtKbps, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                                    .addComponent(txtAutor)
+                                    .addComponent(txtCodec, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(30, 30, 30))
+                            .addComponent(txtCamiFitxer)
+                            .addComponent(txtCamiImatge))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSelecciona1)
+                            .addComponent(btnSelecciona))
+                        .addGap(50, 50, 50))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancela)
+                        .addGap(53, 53, 53)
+                        .addComponent(btnAccepta)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCamiFitxer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelecciona))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCamiImatge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelecciona1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtKbps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCodec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancela)
+                    .addComponent(btnAccepta))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DialogAfegirAudio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DialogAfegirAudio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DialogAfegirAudio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DialogAfegirAudio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void btnAcceptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptaActionPerformed
+        // TODO add your handling code here:
+        //Actualitza les dades del fitxer
+        temp.setCamiImatge(txtCamiImatge.getText());
+        temp.setCami(txtCamiFitxer.getText());
+        temp.setAutor(txtAutor.getText());
+        temp.setKbs(Integer.parseInt(txtKbps.getText()));
+        temp.setCodec(txtCodec.getText());
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                DialogAfegirAudio dialog = new DialogAfegirAudio(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+        //Tanca la finestra de dialeg
+        this.dispose();
+    }//GEN-LAST:event_btnAcceptaActionPerformed
+
+    private void btnCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelaActionPerformed
+
+    private void btnSeleccionaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionaActionPerformed
+        // TODO add your handling code here:
+        File fitxer;
+        JFileChooser seleccio = new JFileChooser();
+        int resultat = seleccio.showOpenDialog(this);
+        if (resultat == JFileChooser.APPROVE_OPTION) {
+            fitxer=seleccio.getSelectedFile();
+            txtCamiFitxer.setText(fitxer.toString());
+        }
+    }//GEN-LAST:event_btnSeleccionaActionPerformed
+
+    private void btnSelecciona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecciona1ActionPerformed
+        // TODO add your handling code here:
+        File fitxer;
+        JFileChooser seleccio = new JFileChooser();
+        int resultat = seleccio.showOpenDialog(this);
+        if (resultat == JFileChooser.APPROVE_OPTION) {
+            fitxer=seleccio.getSelectedFile();
+            txtCamiImatge.setText(fitxer.toString());
+        }
+    }//GEN-LAST:event_btnSelecciona1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAccepta;
+    private javax.swing.JButton btnCancela;
+    private javax.swing.JButton btnSelecciona;
+    private javax.swing.JButton btnSelecciona1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField txtAutor;
+    private javax.swing.JTextField txtCamiFitxer;
+    private javax.swing.JTextField txtCamiImatge;
+    private javax.swing.JTextField txtCodec;
+    private javax.swing.JTextField txtKbps;
     // End of variables declaration//GEN-END:variables
 }
