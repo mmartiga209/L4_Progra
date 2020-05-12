@@ -116,6 +116,14 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
                 txtMultius2ActionPerformed(evt);
             }
         });
+        txtMultius2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtMultius2KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMultius2KeyReleased(evt);
+            }
+        });
 
         lblCami.setText("Cami fitxer");
 
@@ -260,6 +268,7 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         fitxer=seleccio.getSelectedFile();
         //Posem la ruta del fitxer al quadre de text
         txtCami.setText(fitxer.toString());
+        txtCodec.setText(fitxer.toString().substring(fitxer.toString().length()-4,fitxer.toString().length()));
         }        
     }//GEN-LAST:event_btnSelecciona1ActionPerformed
 
@@ -301,9 +310,15 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
             txtCami.setVisible(true);
             txtCodec.setVisible(true);
             txtMultius1.setVisible(true);
-            txtMultius2.setVisible(true);            
+            txtMultius2.setVisible(true);
+            txtAutor.setText("");
+            txtCami.setText("");
+            txtCodec.setText("");
+            txtMultius1.setText("");
+            txtMultius2.setText("");             
             txtMultius1.setEditable(true);
             btnSelecciona1.setVisible(true);
+            btnSelecciona2.setVisible(false);
             btnAcceptar.setVisible(true);
         }
         else{
@@ -318,7 +333,12 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
             txtCami.setVisible(true);
             txtCodec.setVisible(true);
             txtMultius1.setVisible(true);
-            txtMultius2.setVisible(true);            
+            txtMultius2.setVisible(true); 
+            txtAutor.setText("");
+            txtCami.setText("");
+            txtCodec.setText("");
+            txtMultius1.setText("");
+            txtMultius2.setText(""); 
             txtMultius1.setEditable(false);
             btnSelecciona1.setVisible(true);
             btnSelecciona2.setVisible(true);
@@ -331,6 +351,21 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
     private void txtCodecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodecActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodecActionPerformed
+
+    private void txtMultius2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMultius2KeyPressed
+
+    }//GEN-LAST:event_txtMultius2KeyPressed
+
+    private void txtMultius2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMultius2KeyReleased
+        // TODO add your handling code here:
+        String value = txtMultius2.getText();
+        int l = value.length();
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+
+        } else {
+           txtMultius2.setText("");
+        }
+    }//GEN-LAST:event_txtMultius2KeyReleased
 
     /**
      * @param args the command line arguments

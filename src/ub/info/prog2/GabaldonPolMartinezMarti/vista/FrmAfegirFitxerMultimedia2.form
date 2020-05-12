@@ -194,6 +194,8 @@
     <Component class="javax.swing.JTextField" name="txtMultius2">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMultius2ActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMultius2KeyPressed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMultius2KeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCami">
