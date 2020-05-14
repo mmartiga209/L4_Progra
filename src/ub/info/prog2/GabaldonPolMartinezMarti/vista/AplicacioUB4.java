@@ -187,6 +187,11 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         lblSeleccionarPortafoli.setText("Seleccionar Portafoli:");
 
         btnRecuperaDades.setText("Recupera dades des d'un fitxer");
+        btnRecuperaDades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecuperaDadesActionPerformed(evt);
+            }
+        });
 
         btnGuardaDades.setText("Guarda dades a un fitxer");
         btnGuardaDades.addActionListener(new java.awt.event.ActionListener() {
@@ -404,11 +409,36 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
             }
             catch(ReproException e){
-                JOptionPane.showMessageDialog(this, e.toString(), "Error a al guardar", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, e.toString(), "Error al guardar", JOptionPane.ERROR_MESSAGE);
                 
             }
         }
     }//GEN-LAST:event_btnGuardaDadesActionPerformed
+
+    private void btnRecuperaDadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperaDadesActionPerformed
+        // TODO add your handling code here:
+        File fitxer;
+        //Creació del selector de fitxer
+        JFileChooser seleccio = new JFileChooser();
+        //Mostrem la finestra de dialeg
+        //Resultat emmagazema una constant que indica si s’ha
+        //seleccionat o no un fitxer
+        int resultat = seleccio.showOpenDialog(this);
+        //Assegurem que hi hagi un fitxer seleccionat
+        if (resultat == JFileChooser.APPROVE_OPTION) {
+            fitxer=seleccio.getSelectedFile();
+        
+            try{
+                controlador.loadDades(fitxer.toString());
+                JOptionPane.showMessageDialog(this, "Llista recuperada exitosament");
+
+            }
+            catch(ReproException e){
+                JOptionPane.showMessageDialog(this, e.toString(), "Error al recuperar", JOptionPane.ERROR_MESSAGE);
+                
+            }
+        }  
+    }//GEN-LAST:event_btnRecuperaDadesActionPerformed
 
     /**
      * @param args the command line arguments

@@ -339,6 +339,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Recupera dades des d&apos;un fitxer"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRecuperaDadesActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnGuardaDades">
       <Properties>
