@@ -14,6 +14,7 @@ import ub.info.prog2.utils.ReproException;
 import javax.swing.JOptionPane;
 import java.util.Iterator;
 import javax.swing.JFileChooser;
+import javax.swing.ListSelectionModel;
 /**
  *
  * @author polg24
@@ -31,6 +32,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         btnEliminarPortafoli.setEnabled(false);
         btnEliminarFitxerRepositori.setEnabled(false);
         btnAfegirFitxerPortafoli.setEnabled(false);
+        lstRepositori.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
     
     private void updateCmbPortafolis() {
