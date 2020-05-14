@@ -27,97 +27,109 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="276" pref="276" max="-2" attributes="0"/>
-                      <Component id="btnAfegirFitxerRepositori" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnEliminarFitxer" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnEliminarPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEliminarFitxerRepositori" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnEliminarFitxerPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnAfegirFitxerPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnPlayPortafoli" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnPlayFitRepositori" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnPlayRepositori1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="txtTitolPortafoli" max="32767" attributes="0"/>
-                                          <Component id="btnCrearPortafoli" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="cmbPortafolis" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="chkReverse" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="chkCiclica" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Component id="btnAfegirFitxerPortafoli" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAfegirFitxerRepositori" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="btnCrearPortafoli" pref="198" max="32767" attributes="0"/>
+                                      <Component id="txtTitolPortafoli" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnPlay" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="btnPause" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                      <Component id="btnAtura" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="btn" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lblTitolPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEliminarPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblSeleccionarPortafoli" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbPortafolis" min="-2" pref="182" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="chkReverse" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkCiclica" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnPlay" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="btnPause" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="btnAtura" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="btn" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="lblTitolPortafoli" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblSeleccionarPortafoli" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Component id="txtTitolPortafoli" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnAfegirFitxerRepositori" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cmbPortafolis" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtTitolPortafoli" alignment="3" max="32767" attributes="0"/>
+                          <Component id="btnAfegirFitxerRepositori" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbPortafolis" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnAfegirFitxerPortafoli" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCrearPortafoli" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnEliminarPortafoli" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEliminarFitxer" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <Component id="btnEliminarFitxerRepositori" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Component id="btnEliminarFitxerPortafoli" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
@@ -146,9 +158,8 @@
               </Group>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="687" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -158,11 +169,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Afegir un Fitxer al Repositori"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAfegirFitxerRepositoriActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnEliminarFitxer">
+    <Component class="javax.swing.JButton" name="btnEliminarFitxerRepositori">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar Fitxer seleccionat del Repositori"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarFitxerRepositoriActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCrearPortafoli">
       <Properties>
@@ -176,10 +193,13 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar Portafoli"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarPortafoliActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAfegirFitxerPortafoli">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Afegir un Fitxer a un Portafoli"/>
+        <Property name="text" type="java.lang.String" value="Afegir un Fitxer al Portafoli seleccionat"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnEliminarFitxerPortafoli">
@@ -246,6 +266,9 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="lstRepositoriValueChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -274,12 +297,7 @@
     <Component class="javax.swing.JComboBox" name="cmbPortafolis">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -290,6 +308,16 @@
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTitolPortafoliKeyReleased"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTitolPortafoli">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="T&#xed;tol Portafoli:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSeleccionarPortafoli">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Seleccionar Portafoli:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

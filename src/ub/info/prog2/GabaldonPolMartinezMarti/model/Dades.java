@@ -399,4 +399,26 @@ public class Dades implements Serializable{
         ((FitxerMultimedia) repositori.getAt(i)).setMotor(motor);
       }
     }
+    
+    public List<String> getTitolsPortafolis() {
+        ArrayList<String> list = new ArrayList<>();
+        Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
+        while (iter.hasNext()) {
+            list.add(iter.next().getTitol());
+        }
+        return list;
+    }
+    
+    public int getSizePortafolis() {
+        return portafolis.size();
+    }
+    
+    public int getSizeRepositori() {
+        return repositori.getSize();
+    }
+    
+    public File getAtRepositori(int i) {
+        return repositori.getAt(i);
+    }
+    
 }

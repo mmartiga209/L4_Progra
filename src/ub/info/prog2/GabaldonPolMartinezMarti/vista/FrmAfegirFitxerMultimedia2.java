@@ -315,12 +315,12 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         //Tanca la finestra de dialeg
         try{
             if(((String)cmbTipusFitxer.getSelectedItem()).equals("Imatge")){
-                controlador.addImatge(txtCami.getText(), txtAutor.getText(), txtCodec.getText(),Integer.parseInt(txtMultius1.getText()) , Integer.parseInt(txtMultius2.getText()));
-                this.dispose();        
+                controlador.addImatge(txtCami.getText(), txtAutor.getText(), txtCodec.getText(),Integer.parseInt(txtMultius1.getText()) , Integer.parseInt(txtMultius2.getText()));        
             }
             else{
                 controlador.addAudio(txtCami.getText(), txtMultius1.getText(), txtAutor.getText(), txtCodec.getText(), Integer.parseInt(txtMultius2.getText()));
             }
+            this.dispose();
         }
         catch(ReproException e){
             JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir", JOptionPane.ERROR_MESSAGE);

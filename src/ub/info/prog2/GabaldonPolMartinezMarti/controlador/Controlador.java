@@ -78,14 +78,16 @@ public class Controlador implements InControlador {
      */
     @Override
     public void removeFitxer(int i) throws ReproException{
+        boolean reproduint = false;
         if(escoltador.reproduccioIniciada() && dades.getRepositori().equals(escoltador.getLlistaReproduint())){
             escoltador.decrementNombreFitxers();
             if(escoltador.getReproduint()>=i){
                 escoltador.decrementReproduint();
             }
+            reproduint = true;
         }
         dades.removeFitxer(i);
-        if(dades.getRepositori().getSize()==0){
+        if(dades.getRepositori().getSize() == 0 && reproduint){
             // Si s'està reproduint el darrer fitxer del repositori i es borra, quedaran 0. Per tant tancarem la finestra per evitar errors.
             closeFinestraReproductor();
         }
@@ -333,6 +335,28 @@ public class Controlador implements InControlador {
     public void setMotor(){
         dades.setMotor(motor);
     }
-   
     
+    public List<String> getTitolsPortafolis() {
+        return dades.getTitolsPortafolis();
+    }
+    
+    public int getSizePortafolis() {
+        return dades.getSizePortafolis();
+    }
+    
+    public int getSizeRepositori() {
+        return dades.getSizeRepositori();
+    }
+    
+    public File getAtRepositori(int i) {
+        return dades.getAtRepositori(i);
+    }
+    
+    public File getAtPortafoli(String titol, int i) {
+        return dades.getPortafoli(titol).getAt(i);
+    }
+    
+    public int getSizePortafoli(String titol) {
+        return dades.getPortafoli(titol).getSize();
+    }
 }

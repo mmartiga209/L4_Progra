@@ -138,4 +138,10 @@ public abstract class FitxerMultimedia extends File implements InFile {
     public void setMotor(Motor motor){
         this.motor = motor;
     }
+    
+    public String resum() {
+        String s = "";
+        s += "<html>" + getCamiAbsolut() + "<br/>Autor: " + autor;
+        return s;
+    }
 }
