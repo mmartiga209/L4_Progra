@@ -41,6 +41,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }
         cmbPortafolis.setModel(model);
         updateBtnAfegirFitxerPortafoli();
+        updateLstPortafoli();
     }
     
     private void updateEliminarPortafoli() {
@@ -107,6 +108,8 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         lblSeleccionarPortafoli = new javax.swing.JLabel();
         btnRecuperaDades = new javax.swing.JButton();
         btnGuardaDades = new javax.swing.JButton();
+        btnAddImatge = new javax.swing.JButton();
+        btnAddAudio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(242, 241, 241));
@@ -176,6 +179,12 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(lstPortafoli);
 
+        cmbPortafolis.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbPortafolisItemStateChanged(evt);
+            }
+        });
+
         txtTitolPortafoli.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtTitolPortafoliKeyReleased(evt);
@@ -200,6 +209,20 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
+        btnAddImatge.setText("addimatge");
+        btnAddImatge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddImatgeActionPerformed(evt);
+            }
+        });
+
+        btnAddAudio.setText("addaudio");
+        btnAddAudio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddAudioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -220,11 +243,18 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(btnRecuperaDades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(btnGuardaDades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnPlayPortafoli)
-                                    .addComponent(btnPlayFitRepositori)
-                                    .addComponent(btnPlayRepositori1)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnPlayPortafoli)
+                                            .addComponent(btnPlayFitRepositori)
+                                            .addComponent(btnPlayRepositori1)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(160, 160, 160)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(btnAddAudio)
+                                            .addComponent(btnAddImatge)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnAfegirFitxerPortafoli)
@@ -287,10 +317,17 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                             .addComponent(btnCrearPortafoli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEliminarPortafoli)
-                        .addGap(74, 74, 74)
-                        .addComponent(btnEliminarFitxerRepositori)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEliminarFitxerPortafoli)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addComponent(btnEliminarFitxerRepositori)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnEliminarFitxerPortafoli))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(btnAddImatge)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAddAudio)))
                         .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPlayFitRepositori)
@@ -388,6 +425,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         catch (ReproException e) {
             JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
         }
+        updateLstPortafoli();
     }//GEN-LAST:event_btnAfegirFitxerPortafoliActionPerformed
 
     private void btnGuardaDadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaDadesActionPerformed
@@ -440,6 +478,30 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_btnRecuperaDadesActionPerformed
 
+    private void btnAddImatgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddImatgeActionPerformed
+        try {
+            controlador.addImatge("/home/polg24/Desktop/bolas.png", "Pol", ".png", 1, 2);
+            updateLstRepositori();
+        }
+        catch (ReproException e) {
+            JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAddImatgeActionPerformed
+
+    private void btnAddAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAudioActionPerformed
+        try {
+            controlador.addAudio("/home/polg24/Desktop/hope.mp3", "/home/polg24/Desktop/bolas.png", "Sho", "08642", 45678);
+            updateLstRepositori();
+        }
+        catch (ReproException e) {
+            JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAddAudioActionPerformed
+
+    private void cmbPortafolisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPortafolisItemStateChanged
+        updateLstPortafoli();
+    }//GEN-LAST:event_cmbPortafolisItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -477,6 +539,8 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn;
+    private javax.swing.JButton btnAddAudio;
+    private javax.swing.JButton btnAddImatge;
     private javax.swing.JButton btnAfegirFitxerPortafoli;
     private javax.swing.JButton btnAfegirFitxerRepositori;
     private javax.swing.JButton btnAtura;
