@@ -5,6 +5,7 @@
  */
 package ub.info.prog2.GabaldonPolMartinezMarti.vista;
 
+import java.io.File;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Controlador;
@@ -12,6 +13,7 @@ import ub.info.prog2.GabaldonPolMartinezMarti.model.FitxerMultimedia;
 import ub.info.prog2.utils.ReproException;
 import javax.swing.JOptionPane;
 import java.util.Iterator;
+import javax.swing.JFileChooser;
 /**
  *
  * @author polg24
@@ -187,6 +189,11 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         btnRecuperaDades.setText("Recupera dades des d'un fitxer");
 
         btnGuardaDades.setText("Guarda dades a un fitxer");
+        btnGuardaDades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardaDadesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -377,6 +384,31 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAfegirFitxerPortafoliActionPerformed
+
+    private void btnGuardaDadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaDadesActionPerformed
+        // TODO add your handling code here:
+        File fitxer;
+        //Creació del selector de fitxer
+        JFileChooser seleccio = new JFileChooser();
+        //Mostrem la finestra de dialeg
+        //Resultat emmagazema una constant que indica si s’ha
+        //seleccionat o no un fitxer
+        int resultat = seleccio.showOpenDialog(this);
+        //Assegurem que hi hagi un fitxer seleccionat
+        if (resultat == JFileChooser.APPROVE_OPTION) {
+            fitxer=seleccio.getSelectedFile();
+        
+            try{
+                controlador.saveDades(fitxer.toString());
+                JOptionPane.showMessageDialog(this, "Llista guardada exitosament");
+
+            }
+            catch(ReproException e){
+                JOptionPane.showMessageDialog(this, e.toString(), "Error a al guardar", JOptionPane.ERROR_MESSAGE);
+                
+            }
+        }
+    }//GEN-LAST:event_btnGuardaDadesActionPerformed
 
     /**
      * @param args the command line arguments
