@@ -366,7 +366,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         catch (ReproException e) {
             JOptionPane.showMessageDialog(this, e.toString(), "Error a l'eliminar Portafoli", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         updateLstRepositori();
         updateLstPortafoli();
     }//GEN-LAST:event_btnEliminarFitxerRepositoriActionPerformed
