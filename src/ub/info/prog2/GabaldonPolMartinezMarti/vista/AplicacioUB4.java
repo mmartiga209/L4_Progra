@@ -50,7 +50,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     }
     
     private void updateBtnAfegirFitxerPortafoli() {
-        btnAfegirFitxerPortafoli.setEnabled(!lstRepositori.isSelectionEmpty() && cmbPortafolis.getComponentCount() != 0);
+        btnAfegirFitxerPortafoli.setEnabled(!lstRepositori.isSelectionEmpty() && cmbPortafolis.getItemCount() != 0);
     }
     
     private void updateLstRepositori() {
@@ -138,6 +138,11 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         });
 
         btnAfegirFitxerPortafoli.setText("Afegir un Fitxer al Portafoli seleccionat");
+        btnAfegirFitxerPortafoli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAfegirFitxerPortafoliActionPerformed(evt);
+            }
+        });
 
         btnEliminarFitxerPortafoli.setText("Eliminar Fitxer seleccionat d'un Portafoli");
 
@@ -363,6 +368,15 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         updateBtnEliminarFitxerRepositori();
         updateBtnAfegirFitxerPortafoli();
     }//GEN-LAST:event_lstRepositoriValueChanged
+
+    private void btnAfegirFitxerPortafoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfegirFitxerPortafoliActionPerformed
+        try {
+            controlador.addFitxer((String)cmbPortafolis.getSelectedItem(), lstRepositori.getSelectedIndex() + 1);
+        }
+        catch (ReproException e) {
+            JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAfegirFitxerPortafoliActionPerformed
 
     /**
      * @param args the command line arguments

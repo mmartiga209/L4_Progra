@@ -214,6 +214,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Afegir un Fitxer al Portafoli seleccionat"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAfegirFitxerPortafoliActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEliminarFitxerPortafoli">
       <Properties>
