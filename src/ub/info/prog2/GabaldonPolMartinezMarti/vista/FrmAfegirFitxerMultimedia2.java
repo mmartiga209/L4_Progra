@@ -413,7 +413,8 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         int l = value.length();
         if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
 
-        } else {
+        } 
+        else {
            txtMultius1.setText("");
         }
         btnAcceptar.setEnabled( !(txtMultius1.getText().equals("") || txtMultius2.getText().equals("") || txtAutor.getText().equals("") || txtCami.getText().equals("")));
