@@ -37,6 +37,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnEliminarFitxerRepositori" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnEliminarFitxerPortafoli" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnRecuperaDades" max="32767" attributes="0"/>
+                                          <Component id="btnGuardaDades" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -133,9 +140,15 @@
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Component id="btnEliminarFitxerPortafoli" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                      <Component id="btnPlayFitRepositori" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnPlayFitRepositori" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRecuperaDades" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnPlayRepositori1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnPlayRepositori1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGuardaDades" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Component id="btnPlayPortafoli" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
@@ -317,6 +330,16 @@
     <Component class="javax.swing.JLabel" name="lblSeleccionarPortafoli">
       <Properties>
         <Property name="text" type="java.lang.String" value="Seleccionar Portafoli:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRecuperaDades">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Recupera dades des d&apos;un fitxer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnGuardaDades">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Guarda dades a un fitxer"/>
       </Properties>
     </Component>
   </SubComponents>

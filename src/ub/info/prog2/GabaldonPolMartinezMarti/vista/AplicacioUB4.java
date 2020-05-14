@@ -103,6 +103,8 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         txtTitolPortafoli = new javax.swing.JTextField();
         lblTitolPortafoli = new javax.swing.JLabel();
         lblSeleccionarPortafoli = new javax.swing.JLabel();
+        btnRecuperaDades = new javax.swing.JButton();
+        btnGuardaDades = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(242, 241, 241));
@@ -177,6 +179,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
         lblSeleccionarPortafoli.setText("Seleccionar Portafoli:");
 
+        btnRecuperaDades.setText("Recupera dades des d'un fitxer");
+
+        btnGuardaDades.setText("Guarda dades a un fitxer");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,7 +197,12 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnEliminarFitxerRepositori)
-                                    .addComponent(btnEliminarFitxerPortafoli))
+                                    .addComponent(btnEliminarFitxerPortafoli)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(btnRecuperaDades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnGuardaDades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnPlayPortafoli)
@@ -264,9 +275,13 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEliminarFitxerPortafoli)
                         .addGap(79, 79, 79)
-                        .addComponent(btnPlayFitRepositori)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnPlayFitRepositori)
+                            .addComponent(btnRecuperaDades))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPlayRepositori1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnPlayRepositori1)
+                            .addComponent(btnGuardaDades))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPlayPortafoli)
                         .addGap(95, 95, 95)
@@ -393,11 +408,13 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarFitxerPortafoli;
     private javax.swing.JButton btnEliminarFitxerRepositori;
     private javax.swing.JButton btnEliminarPortafoli;
+    private javax.swing.JButton btnGuardaDades;
     private javax.swing.JButton btnPause;
     private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnPlayFitRepositori;
     private javax.swing.JButton btnPlayPortafoli;
     private javax.swing.JButton btnPlayRepositori1;
+    private javax.swing.JButton btnRecuperaDades;
     private javax.swing.JCheckBox chkCiclica;
     private javax.swing.JCheckBox chkReverse;
     private javax.swing.JComboBox<String> cmbPortafolis;
