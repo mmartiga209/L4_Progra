@@ -28,6 +28,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         btnCrearPortafoli.setEnabled(false);
         btnEliminarPortafoli.setEnabled(false);
         btnEliminarFitxerRepositori.setEnabled(false);
+        btnAfegirFitxerPortafoli.setEnabled(false);
     }
     
     private void updateCmbPortafolis() {
@@ -37,6 +38,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             model.addElement(iter.next());
         }
         cmbPortafolis.setModel(model);
+        updateBtnAfegirFitxerPortafoli();
     }
     
     private void updateEliminarPortafoli() {
@@ -45,6 +47,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     
     private void updateBtnEliminarFitxerRepositori() {
         btnEliminarFitxerRepositori.setEnabled(!lstRepositori.isSelectionEmpty());
+    }
+    
+    private void updateBtnAfegirFitxerPortafoli() {
+        btnAfegirFitxerPortafoli.setEnabled(!lstRepositori.isSelectionEmpty() && cmbPortafolis.getComponentCount() != 0);
     }
     
     private void updateLstRepositori() {
@@ -296,6 +302,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             updateCmbPortafolis();
             updateEliminarPortafoli();
             updateLstPortafoli();
+            
         }
         catch (ReproException e) {
             JOptionPane.showMessageDialog(this, e.toString(), "Error al crear Portafoli", JOptionPane.ERROR_MESSAGE);
@@ -339,6 +346,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
     private void lstRepositoriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstRepositoriValueChanged
         updateBtnEliminarFitxerRepositori();
+        updateBtnAfegirFitxerPortafoli();
     }//GEN-LAST:event_lstRepositoriValueChanged
 
     /**
