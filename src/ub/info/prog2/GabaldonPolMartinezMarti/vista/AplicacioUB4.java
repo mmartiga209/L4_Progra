@@ -5,7 +5,9 @@
  */
 package ub.info.prog2.GabaldonPolMartinezMarti.vista;
 
+import java.awt.Dimension;
 import java.io.File;
+import java.awt.Toolkit;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Controlador;
@@ -32,7 +34,12 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         btnEliminarPortafoli.setEnabled(false);
         btnEliminarFitxerRepositori.setEnabled(false);
         btnAfegirFitxerPortafoli.setEnabled(false);
+        btnPlayFitxerRepositori.setEnabled(false);
+        btnPlayRepositori.setEnabled(false);
+        btnPlayPortafoli.setEnabled(false);
         lstRepositori.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setPreferredSize(new Dimension(screenSize.width * 7 / 8, screenSize.height * 7/8));
     }
     
     private void updateCmbPortafolis() {
@@ -52,6 +59,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     
     private void updateBtnEliminarFitxerRepositori() {
         btnEliminarFitxerRepositori.setEnabled(!lstRepositori.isSelectionEmpty());
+    }
+    
+    private void updateBtnEliminarFitxerPortafoli(){
+        btnEliminarFitxerPortafoli.setEnabled(!lstPortafoli.isSelectionEmpty());
     }
     
     private void updateBtnAfegirFitxerPortafoli() {
@@ -75,6 +86,27 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }
         lstPortafoli.setModel(model);
     }
+    
+    private void updateBtnPlayFitxerRepositori(){
+        btnPlayFitxerRepositori.setEnabled(!lstRepositori.isSelectionEmpty());
+    }
+    
+    private void updateBtnPlayPortafoli(){
+        btnPlayPortafoli.setEnabled(controlador.getSizePortafolis() != 0);
+        
+    }
+    
+    private void updateBtnPlayRepositori(){
+        btnPlayRepositori.setEnabled(controlador.getSizeRepositori()!= 0);
+    }
+    
+    private void updateChkCiclica(){
+        chkCiclica.setSelected(controlador.getCiclica());
+    }
+    
+    private void updateChkReverse(){
+        chkReverse.setSelected(controlador.getReverse());
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,15 +123,15 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         btnEliminarPortafoli = new javax.swing.JButton();
         btnAfegirFitxerPortafoli = new javax.swing.JButton();
         btnEliminarFitxerPortafoli = new javax.swing.JButton();
-        btnPlayFitRepositori = new javax.swing.JButton();
+        btnPlayFitxerRepositori = new javax.swing.JButton();
         btnPlayPortafoli = new javax.swing.JButton();
-        btnPlayRepositori1 = new javax.swing.JButton();
+        btnPlayRepositori = new javax.swing.JButton();
         chkCiclica = new javax.swing.JCheckBox();
         chkReverse = new javax.swing.JCheckBox();
         btnPlay = new javax.swing.JButton();
         btnPause = new javax.swing.JButton();
         btnAtura = new javax.swing.JButton();
-        btn = new javax.swing.JButton();
+        btnSalta = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstRepositori = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -152,26 +184,81 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         });
 
         btnEliminarFitxerPortafoli.setText("Eliminar Fitxer seleccionat d'un Portafoli");
+        btnEliminarFitxerPortafoli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarFitxerPortafoliActionPerformed(evt);
+            }
+        });
 
-        btnPlayFitRepositori.setText("Reproduir el Fitxer seleccionat del Repositori");
-        btnPlayFitRepositori.setToolTipText("");
+        btnPlayFitxerRepositori.setText("Reproduir el Fitxer seleccionat del Repositori");
+        btnPlayFitxerRepositori.setToolTipText("");
+        btnPlayFitxerRepositori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayFitxerRepositoriActionPerformed(evt);
+            }
+        });
 
         btnPlayPortafoli.setText("Reproduir el Portafoli seleccionat");
+        btnPlayPortafoli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayPortafoliActionPerformed(evt);
+            }
+        });
 
-        btnPlayRepositori1.setText("Reproduir el Repositori");
+        btnPlayRepositori.setText("Reproduir el Repositori");
+        btnPlayRepositori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayRepositoriActionPerformed(evt);
+            }
+        });
 
         chkCiclica.setText("Reproduccio Cíclica");
+        chkCiclica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkCiclicaActionPerformed(evt);
+            }
+        });
 
         chkReverse.setText("Reproduccio Reverse");
+        chkReverse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkReverseActionPerformed(evt);
+            }
+        });
 
         btnPlay.setText("Play");
+        btnPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayActionPerformed(evt);
+            }
+        });
 
         btnPause.setText("Pause");
+        btnPause.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPauseActionPerformed(evt);
+            }
+        });
 
         btnAtura.setText("Atura");
+        btnAtura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAturaActionPerformed(evt);
+            }
+        });
 
-        btn.setText("Salta");
+        btnSalta.setText("Salta");
+        btnSalta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaltaActionPerformed(evt);
+            }
+        });
 
+        lstRepositori.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                lstRepositoriComponentAdded(evt);
+            }
+        });
         lstRepositori.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 lstRepositoriValueChanged(evt);
@@ -179,6 +266,11 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(lstRepositori);
 
+        lstPortafoli.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstPortafoliValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(lstPortafoli);
 
         cmbPortafolis.addItemListener(new java.awt.event.ItemListener() {
@@ -230,10 +322,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -250,8 +342,8 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                                         .addGap(8, 8, 8)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnPlayPortafoli)
-                                            .addComponent(btnPlayFitRepositori)
-                                            .addComponent(btnPlayRepositori1)))
+                                            .addComponent(btnPlayFitxerRepositori)
+                                            .addComponent(btnPlayRepositori)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(160, 160, 160)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -273,7 +365,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                                     .addComponent(lblSeleccionarPortafoli)
                                     .addComponent(cmbPortafolis, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGap(317, 317, 317)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(360, 360, 360)
@@ -287,7 +379,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                                 .addGap(55, 55, 55)
                                 .addComponent(btnAtura)
                                 .addGap(31, 31, 31)
-                                .addComponent(btn)))))
+                                .addComponent(btnSalta)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -297,18 +389,14 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(lblTitolPortafoli))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblSeleccionarPortafoli)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(lblTitolPortafoli))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblSeleccionarPortafoli)))
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtTitolPortafoli)
                             .addComponent(btnAfegirFitxerRepositori)
@@ -332,30 +420,35 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                                 .addComponent(btnAddAudio)))
                         .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnPlayFitRepositori)
+                            .addComponent(btnPlayFitxerRepositori)
                             .addComponent(btnRecuperaDades))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnPlayRepositori1)
+                            .addComponent(btnPlayRepositori)
                             .addComponent(btnGuardaDades))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPlayPortafoli)
-                        .addGap(95, 95, 95)
-                        .addComponent(chkCiclica)
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnPlay)
-                                    .addComponent(btnPause)
-                                    .addComponent(btnAtura)
-                                    .addComponent(btn))
-                                .addGap(12, 12, 12))
-                            .addComponent(chkReverse))
-                        .addGap(26, 26, 26))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(95, 95, 95))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(chkCiclica)
+                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnPlay)
+                            .addComponent(btnPause)
+                            .addComponent(btnAtura)
+                            .addComponent(btnSalta))
+                        .addGap(12, 12, 12))
+                    .addComponent(chkReverse))
+                .addGap(26, 26, 26))
         );
 
         pack();
@@ -372,6 +465,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             btnCrearPortafoli.setEnabled(false);
             updateCmbPortafolis();
             updateEliminarPortafoli();
+            updateBtnPlayPortafoli();
             updateLstPortafoli();
             
         }
@@ -385,6 +479,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             controlador.removePortafoli((String)cmbPortafolis.getSelectedItem());
             updateCmbPortafolis();
             updateEliminarPortafoli();
+            updateBtnPlayPortafoli();
             updateLstPortafoli();
         }
         catch (ReproException e) {
@@ -401,6 +496,8 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         jDAfegir.setVisible(true);
         
         updateLstRepositori();
+        updateBtnPlayRepositori();
+
     }//GEN-LAST:event_btnAfegirFitxerRepositoriActionPerformed
 
     private void btnEliminarFitxerRepositoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFitxerRepositoriActionPerformed
@@ -413,10 +510,13 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
         updateLstRepositori();
         updateLstPortafoli();
+        updateBtnPlayRepositori();
+
     }//GEN-LAST:event_btnEliminarFitxerRepositoriActionPerformed
 
     private void lstRepositoriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstRepositoriValueChanged
         updateBtnEliminarFitxerRepositori();
+        updateBtnPlayFitxerRepositori();
         updateBtnAfegirFitxerPortafoli();
     }//GEN-LAST:event_lstRepositoriValueChanged
 
@@ -470,7 +570,20 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         
             try{
                 controlador.loadDades(fitxer.toString());
+                updateLstRepositori();
+                updateCmbPortafolis();
+                updateLstPortafoli();                        
+                updateEliminarPortafoli();
+                updateBtnPlayPortafoli();
+                updateBtnEliminarFitxerRepositori();
+                updateBtnEliminarFitxerPortafoli();
+                updateBtnAfegirFitxerPortafoli();
+                updateBtnPlayRepositori();
+                updateChkCiclica();
+                updateChkReverse();
+                
                 JOptionPane.showMessageDialog(this, "Llista recuperada exitosament");
+                
 
             }
             catch(ReproException e){
@@ -482,8 +595,13 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
     private void btnAddImatgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddImatgeActionPerformed
         try {
-            controlador.addImatge("/home/polg24/Desktop/bolas.png", "Pol", ".png", 1, 2);
+            //controlador.addImatge("/home/polg24/Desktop/bolas.png", "Pol", ".png", 1, 2);
+            controlador.addImatge("C:\\Users\\marti\\Desktop\\Reproductor\\5e88a0ba2500003903058a57.jpeg", "Bad Bunny", ".jpeg", 1, 2);
+            controlador.addImatge("C:\\Users\\marti\\Desktop\\Reproductor\\1661714716010501_c5_720x720.jpeg", "Angels", ".png", 1, 2);
+            controlador.addImatge("C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", ".png", 1, 2);
             updateLstRepositori();
+                    updateBtnPlayRepositori();
+
         }
         catch (ReproException e) {
             JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
@@ -492,8 +610,18 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
     private void btnAddAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAudioActionPerformed
         try {
-            controlador.addAudio("/home/polg24/Desktop/hope.mp3", "/home/polg24/Desktop/bolas.png", "Sho", "08642", 45678);
+           // controlador.addAudio("/home/polg24/Desktop/hope.mp3", "/home/polg24/Desktop/bolas.png", "Sho", "08642", 45678);
+            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\Bad Bunny - A Tu Merced (Letra ) (1).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\5e88a0ba2500003903058a57.jpeg", "Bad Bunny", "08642", 45678);
+            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\C. Tangana - Antes de morirme feat. Rosalía (Video Oficial).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", "08642", 45678);
+            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\C. Tangana - De Pie (Audio) (GOEAR.ORG).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", "08642", 45678);
+            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\C. Tangana - Llorando en la Limo (Video Oficial).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", "08642", 45678);
+            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\James Blake - Barefoot In The Park (feat. Rosalía).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\James_Blake_630.jpg", "Rosalia", "08642", 45678);
+            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\Yves_Tumor_-_Gospel_For_A_New_Centurycom.mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\James_Blake_630.jpg", "Yves", "08642", 45678);
+            
+            
             updateLstRepositori();
+                    updateBtnPlayRepositori();
+
         }
         catch (ReproException e) {
             JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
@@ -503,6 +631,112 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     private void cmbPortafolisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPortafolisItemStateChanged
         updateLstPortafoli();
     }//GEN-LAST:event_cmbPortafolisItemStateChanged
+
+    private void btnPlayFitxerRepositoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayFitxerRepositoriActionPerformed
+        // TODO add your handling code here:
+        try {
+            controlador.playFitxer(lstRepositori.getSelectedIndex()+1);
+
+        }
+        catch (ReproException e) {
+            JOptionPane.showMessageDialog(this, e.toString(), "Error al reproduir el fitxer", JOptionPane.ERROR_MESSAGE);
+        }        
+    }//GEN-LAST:event_btnPlayFitxerRepositoriActionPerformed
+
+    private void btnPlayRepositoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayRepositoriActionPerformed
+        // TODO add your handling code here:
+        try{
+            controlador.playLlista();
+        }
+        catch(ReproException e){
+            JOptionPane.showMessageDialog(this, e.toString(), "Error al reproduir", JOptionPane.ERROR_MESSAGE);
+
+        }        
+    }//GEN-LAST:event_btnPlayRepositoriActionPerformed
+
+    private void btnEliminarFitxerPortafoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFitxerPortafoliActionPerformed
+        // TODO add your handling code here:
+        try {
+            controlador.removeFitxer((String)cmbPortafolis.getSelectedItem(),lstPortafoli.getSelectedIndex());
+        }
+        catch (ReproException e) {
+            JOptionPane.showMessageDialog(this, e.toString(), "Error a l'eliminar Portafoli", JOptionPane.ERROR_MESSAGE);
+        }
+
+        updateLstRepositori();
+        updateLstPortafoli();        
+    }//GEN-LAST:event_btnEliminarFitxerPortafoliActionPerformed
+
+    private void lstPortafoliValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPortafoliValueChanged
+        // TODO add your handling code here:
+        updateBtnEliminarFitxerPortafoli();
+    }//GEN-LAST:event_lstPortafoliValueChanged
+
+    private void btnPlayPortafoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayPortafoliActionPerformed
+        // TODO add your handling code here:
+        try{
+            controlador.playLlista((String)cmbPortafolis.getSelectedItem());
+        }
+        catch(ReproException e){
+            JOptionPane.showMessageDialog(this, e.toString(), "Error al reproduir", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_btnPlayPortafoliActionPerformed
+
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
+        // TODO add your handling code here:
+        try{
+            controlador.resumeReproduccio();
+        }
+        catch(ReproException e){
+            JOptionPane.showMessageDialog(this, e.toString(), "Alerta", JOptionPane.WARNING_MESSAGE);            
+        }        
+    }//GEN-LAST:event_btnPlayActionPerformed
+
+    private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
+        // TODO add your handling code here:
+        try{
+            controlador.pauseReproduccio();
+        }
+        catch(ReproException e){
+            JOptionPane.showMessageDialog(this, e.toString(), "Alerta", JOptionPane.WARNING_MESSAGE);            
+        }        
+    }//GEN-LAST:event_btnPauseActionPerformed
+
+    private void btnAturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAturaActionPerformed
+        // TODO add your handling code here:
+        try{
+            controlador.stopReproduccio();
+        }
+        catch(ReproException e){
+            JOptionPane.showMessageDialog(this, e.toString(), "Alerta", JOptionPane.WARNING_MESSAGE);            
+        }  
+    }//GEN-LAST:event_btnAturaActionPerformed
+
+    private void btnSaltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaltaActionPerformed
+        // TODO add your handling code here:
+        try{
+            controlador.jumpReproduccio();
+        }
+        catch(ReproException e){
+            JOptionPane.showMessageDialog(this, e.toString(), "Alerta", JOptionPane.WARNING_MESSAGE);            
+        }  
+    }//GEN-LAST:event_btnSaltaActionPerformed
+
+    private void lstRepositoriComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_lstRepositoriComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lstRepositoriComponentAdded
+
+    private void chkCiclicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCiclicaActionPerformed
+        // TODO add your handling code here:
+        controlador.changeCiclica();
+    }//GEN-LAST:event_chkCiclicaActionPerformed
+
+    private void chkReverseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkReverseActionPerformed
+        // TODO add your handling code here:
+        controlador.changeReverse();
+        
+    }//GEN-LAST:event_chkReverseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -540,7 +774,6 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn;
     private javax.swing.JButton btnAddAudio;
     private javax.swing.JButton btnAddImatge;
     private javax.swing.JButton btnAfegirFitxerPortafoli;
@@ -553,10 +786,11 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardaDades;
     private javax.swing.JButton btnPause;
     private javax.swing.JButton btnPlay;
-    private javax.swing.JButton btnPlayFitRepositori;
+    private javax.swing.JButton btnPlayFitxerRepositori;
     private javax.swing.JButton btnPlayPortafoli;
-    private javax.swing.JButton btnPlayRepositori1;
+    private javax.swing.JButton btnPlayRepositori;
     private javax.swing.JButton btnRecuperaDades;
+    private javax.swing.JButton btnSalta;
     private javax.swing.JCheckBox chkCiclica;
     private javax.swing.JCheckBox chkReverse;
     private javax.swing.JComboBox<String> cmbPortafolis;
