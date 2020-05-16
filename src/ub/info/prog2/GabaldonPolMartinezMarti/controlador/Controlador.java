@@ -171,7 +171,7 @@ public class Controlador implements InControlador {
     @Override
     public void removeFitxer(String titol, int i) throws ReproException{
         dades.removeFitxer(titol, i);
-        }
+        
     }          
 
     /**
