@@ -37,6 +37,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         btnPlayFitxerRepositori.setEnabled(false);
         btnPlayRepositori.setEnabled(false);
         btnPlayPortafoli.setEnabled(false);
+        btnEliminarFitxerPortafoli.setEnabled(false);
         lstRepositori.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setPreferredSize(new Dimension(screenSize.width * 7 / 8, screenSize.height * 7/8));
