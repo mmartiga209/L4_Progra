@@ -67,7 +67,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
      */
     @Override
     protected void onEndFile() {
-            next();
+        next();
     }
 
     /**
@@ -94,7 +94,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
                     ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
                 }
                 catch(ReproException e){
-                    
+                    System.out.println(e);
                 }
                 
             }
