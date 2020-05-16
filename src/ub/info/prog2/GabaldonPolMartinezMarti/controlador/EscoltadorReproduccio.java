@@ -25,6 +25,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
      * Constructor de la classe, posa els atributs ciclica i reverse per defecte a false
      */
     public EscoltadorReproduccio(){
+        llistaReproduint = new LlistaFitxers();
         reproduccioCiclica = false;
         reproduccioReverse = false;
     }
