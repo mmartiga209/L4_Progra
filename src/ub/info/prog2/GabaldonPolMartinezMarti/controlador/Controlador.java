@@ -39,9 +39,6 @@ public class Controlador implements InControlador {
      */
     @Override
     public void addAudio(String camiFitxerAudio, String camiFitxerImatge, String autor, String codec, int kbps) throws ReproException{
-        if(escoltador.reproduccioIniciada() && dades.getRepositori().equals(escoltador.getLlistaReproduint())){
-            escoltador.incrementNombreFitxers();
-        }
         dades.addAudio(camiFitxerAudio,camiFitxerImatge,autor,codec,kbps, motor);
     }
     
@@ -56,9 +53,6 @@ public class Controlador implements InControlador {
      */
     @Override
     public void addImatge(String cami, String autor, String codec, int pixelsAlcada, int pixelsAmplada) throws ReproException{
-        if(escoltador.reproduccioIniciada() && dades.getRepositori().equals(escoltador.getLlistaReproduint())){
-            escoltador.incrementNombreFitxers();
-        }
         dades.addImatge(cami, autor, codec, pixelsAlcada, pixelsAmplada, motor);
     }
     
@@ -78,16 +72,8 @@ public class Controlador implements InControlador {
      */
     @Override
     public void removeFitxer(int i) throws ReproException{
-        boolean reproduint = false;
-        if(escoltador.reproduccioIniciada() && dades.getRepositori().equals(escoltador.getLlistaReproduint())){
-            escoltador.decrementNombreFitxers();
-            if(escoltador.getReproduint()>=i){
-                escoltador.decrementReproduint();
-            }
-            reproduint = true;
-        }
         dades.removeFitxer(i);
-        if(dades.getRepositori().getSize() == 0 && reproduint){
+        if(dades.getRepositori().getSize() == 0){
             // Si s'està reproduint el darrer fitxer del repositori i es borra, quedaran 0. Per tant tancarem la finestra per evitar errors.
             closeFinestraReproductor();
         }
@@ -173,9 +159,6 @@ public class Controlador implements InControlador {
      */
     @Override
     public void addFitxer(String titol, int i) throws ReproException{
-        if(escoltador.reproduccioIniciada() && dades.getPortafoli(titol).equals(escoltador.getLlistaReproduint())){
-            escoltador.incrementNombreFitxers();
-        }
         dades.addFitxer(titol, i);
     }
 
@@ -187,12 +170,6 @@ public class Controlador implements InControlador {
      */
     @Override
     public void removeFitxer(String titol, int i) throws ReproException{
-        if(escoltador.reproduccioIniciada() && dades.getPortafoli(titol).equals(escoltador.getLlistaReproduint())){
-            escoltador.decrementNombreFitxers();
-            if(escoltador.getReproduint()>=i){
-                escoltador.decrementReproduint();
-            }
-        }
         dades.removeFitxer(titol, i);
         if(dades.getPortafoli(titol).getSize()==0){
             // Si s'està reproduint el darrer fitxer del portafoli i es borra, quedaran 0. Per tant tancarem la finestra per evitar errors.
@@ -253,12 +230,17 @@ public class Controlador implements InControlador {
      */
     @Override
     public void playLlista(String titol) throws ReproException {
-        if(dades.getPortafoli(titol).getSize()==0){
+        if(dades.existPortafoli(titol)){
+            if(dades.getPortafoli(titol).getSize()==0){
             throw new ReproException("El portafoli està buit.");
+            }
+            else{
+                openFinestraReproductor();
+                escoltador.iniciarReproduccio(dades.getPortafoli(titol), dades.getCiclica(), dades.getReverse());
+            }
         }
         else{
-        openFinestraReproductor();
-        escoltador.iniciarReproduccio(dades.getPortafoli(titol), dades.getCiclica(), dades.getReverse());
+            throw new ReproException("Aquest portafoli no existeix.");
         }
     }
 

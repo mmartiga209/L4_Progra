@@ -20,8 +20,6 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     private boolean reproduccioCiclica;
     private boolean reproduccioReverse;
     private int reproduint;
-    private int nombreFitxers;
-    private boolean reproduccioIniciada;
     
     /**
      * Constructor de la classe, posa els atributs ciclica i reverse per defecte a false
@@ -29,7 +27,6 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     public EscoltadorReproduccio(){
         reproduccioCiclica = false;
         reproduccioReverse = false;
-        reproduccioIniciada = false;
     }
     
     /**
@@ -41,10 +38,8 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
      */
     public void iniciarReproduccio(LlistaFitxers llistaReproduint, boolean reproduccioCiclica, boolean reproduccioReverse) throws ReproException{
         this.llistaReproduint = llistaReproduint;
-        this.nombreFitxers = llistaReproduint.getSize();
         this.reproduccioCiclica = reproduccioCiclica;
         this.reproduccioReverse = reproduccioReverse;
-        reproduccioIniciada = true;
 
         if(!reproduccioReverse){
             reproduint = 0;
@@ -72,12 +67,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
      */
     @Override
     protected void onEndFile() {
-        if(hasNext()){
             next();
-        }
-        else{
-            
-        }
     }
 
     /**
@@ -85,9 +75,9 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
      */
     @Override
     protected void next() { 
-        if(reproduccioCiclica){
-            if(reproduccioReverse){
-                reproduint = (((reproduint - 1) % nombreFitxers) + nombreFitxers) % nombreFitxers;
+        if(hasNext()){
+            if(!reproduccioReverse){
+                reproduint = (reproduint + 1) % llistaReproduint.getSize();
                 try{
                     ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
                 }
@@ -96,36 +86,23 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
                 }
             }
             else{
-                reproduint = (reproduint + 1) % nombreFitxers;
+                reproduint = (reproduint - 1);
+                if(reproduint<0)
+                    reproduint = llistaReproduint.getSize() + reproduint;
+                
                 try{
                     ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
                 }
                 catch(ReproException e){
                     
                 }
+                
             }
         }
         else{
-            if(reproduccioReverse){
-                reproduint = reproduint - 1;
-                try{
-                    ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
-                }
-                catch(ReproException e){
-                    
-                }                        
-            }
-            else{
-                reproduint = reproduint + 1;
-                try{
-                    ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
-                }
-                catch(ReproException e){
-                    
-                }                  
-            }
             
         }
+        
     }
     
     /**
@@ -139,7 +116,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
         }
         else{
             if(reproduccioReverse){
-                if(reproduint-1>0){
+                if(reproduint-1>=0){
                     return true;
                 }
                 else{
@@ -147,7 +124,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
                 }
             }
             else{
-                if(reproduint+1 < nombreFitxers){
+                if(reproduint+1 < llistaReproduint.getSize()){
                     return true;
                 }
                 else{
@@ -179,26 +156,5 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     public void decrementReproduint() {
         reproduint--;
     }
-    
-    /**
-     * Suma 1 al nombre de fitxers
-     */
-    public void incrementNombreFitxers() {
-        nombreFitxers++;
-    }
-    
-    /**
-     * Resta 1 al nombre de fitxers
-     */
-    public void decrementNombreFitxers() {
-        nombreFitxers--;
-    }
-    
-    /**
-     * 
-     * @return L'estat de reproduccio
-     */
-    public boolean reproduccioIniciada() {
-        return reproduccioIniciada;
-    }
+
 }
