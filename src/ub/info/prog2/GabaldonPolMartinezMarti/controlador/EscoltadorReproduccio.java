@@ -59,7 +59,8 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
      * Crida al mètode d'acabar cançó
      */
     public void skip(){
-        onEndFile();
+        if(llistaReproduint.getSize()!=0)
+            onEndFile();
     }
     
     /**
