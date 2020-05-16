@@ -143,8 +143,8 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         lblSeleccionarPortafoli = new javax.swing.JLabel();
         btnRecuperaDades = new javax.swing.JButton();
         btnGuardaDades = new javax.swing.JButton();
-        btnAddImatge = new javax.swing.JButton();
-        btnAddAudio = new javax.swing.JButton();
+        btnMarti = new javax.swing.JButton();
+        btnPol = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(242, 241, 241));
@@ -304,17 +304,17 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
-        btnAddImatge.setText("addimatge");
-        btnAddImatge.addActionListener(new java.awt.event.ActionListener() {
+        btnMarti.setText("Boto Marti");
+        btnMarti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddImatgeActionPerformed(evt);
+                btnMartiActionPerformed(evt);
             }
         });
 
-        btnAddAudio.setText("addaudio");
-        btnAddAudio.addActionListener(new java.awt.event.ActionListener() {
+        btnPol.setText("Boto Pol");
+        btnPol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddAudioActionPerformed(evt);
+                btnPolActionPerformed(evt);
             }
         });
 
@@ -348,8 +348,8 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(160, 160, 160)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(btnAddAudio)
-                                            .addComponent(btnAddImatge)))))
+                                            .addComponent(btnPol)
+                                            .addComponent(btnMarti)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnAfegirFitxerPortafoli)
@@ -416,9 +416,9 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                                 .addComponent(btnEliminarFitxerPortafoli))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
-                                .addComponent(btnAddImatge)
+                                .addComponent(btnMarti)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnAddAudio)))
+                                .addComponent(btnPol)))
                         .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPlayFitxerRepositori)
@@ -594,40 +594,46 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_btnRecuperaDadesActionPerformed
 
-    private void btnAddImatgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddImatgeActionPerformed
+    private void btnMartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMartiActionPerformed
         try {
-            //controlador.addImatge("/home/polg24/Desktop/bolas.png", "Pol", ".png", 1, 2);
             controlador.addImatge("C:\\Users\\marti\\Desktop\\Reproductor\\5e88a0ba2500003903058a57.jpeg", "Bad Bunny", ".jpeg", 1, 2);
             controlador.addImatge("C:\\Users\\marti\\Desktop\\Reproductor\\1661714716010501_c5_720x720.jpeg", "Angels", ".png", 1, 2);
             controlador.addImatge("C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", ".png", 1, 2);
-            updateLstRepositori();
-                    updateBtnPlayRepositori();
-
-        }
-        catch (ReproException e) {
-            JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnAddImatgeActionPerformed
-
-    private void btnAddAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAudioActionPerformed
-        try {
-           // controlador.addAudio("/home/polg24/Desktop/hope.mp3", "/home/polg24/Desktop/bolas.png", "Sho", "08642", 45678);
             controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\Bad Bunny - A Tu Merced (Letra ) (1).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\5e88a0ba2500003903058a57.jpeg", "Bad Bunny", "08642", 45678);
             controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\C. Tangana - Antes de morirme feat. Rosalía (Video Oficial).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", "08642", 45678);
             controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\C. Tangana - De Pie (Audio) (GOEAR.ORG).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", "08642", 45678);
             controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\C. Tangana - Llorando en la Limo (Video Oficial).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", "08642", 45678);
             controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\James Blake - Barefoot In The Park (feat. Rosalía).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\James_Blake_630.jpg", "Rosalia", "08642", 45678);
             controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\Yves_Tumor_-_Gospel_For_A_New_Centurycom.mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\James_Blake_630.jpg", "Yves", "08642", 45678);
-            
-            
             updateLstRepositori();
-                    updateBtnPlayRepositori();
+            updateBtnPlayRepositori();
 
         }
         catch (ReproException e) {
             JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btnAddAudioActionPerformed
+    }//GEN-LAST:event_btnMartiActionPerformed
+
+    private void btnPolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPolActionPerformed
+        try {
+            controlador.addAudio("/home/polg24/Desktop/did_it_again.mp3", "/home/polg24/Desktop/lil_teccasso.jpeg", "Sho", "08642", 45678);
+            controlador.addAudio("/home/polg24/Desktop/these_days.mp3", "/home/polg24/Desktop/these_days.jpeg", "Sho", "08642", 45678);
+            controlador.addAudio("/home/polg24/Desktop/hope.mp3", "/home/polg24/Desktop/x.jpg", "Sho", "08642", 45678);
+            controlador.addAudio("/home/polg24/Desktop/did_it_again.mp3", "/home/polg24/Desktop/lil_teccasso.jpeg", "Uno otro", "08642", 45678);
+            controlador.addAudio("/home/polg24/Desktop/these_days.mp3", "/home/polg24/Desktop/these_days.jpeg", "Bella chi", "08642", 45678);
+            controlador.addAudio("/home/polg24/Desktop/hope.mp3", "/home/polg24/Desktop/x.jpg", "una verga salvahe", "08642", 45678);
+            controlador.addImatge("/home/polg24/Desktop/Potato.jpg", "Sho", "un codec", 23, 45);
+            controlador.addImatge("/home/polg24/Desktop/bolas.png", "una verga salvahe", "un codec", 23, 455678);
+            
+            
+            updateLstRepositori();
+            updateBtnPlayRepositori();
+
+        }
+        catch (ReproException e) {
+            JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnPolActionPerformed
 
     private void cmbPortafolisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPortafolisItemStateChanged
         updateLstPortafoli();
@@ -775,8 +781,6 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddAudio;
-    private javax.swing.JButton btnAddImatge;
     private javax.swing.JButton btnAfegirFitxerPortafoli;
     private javax.swing.JButton btnAfegirFitxerRepositori;
     private javax.swing.JButton btnAtura;
@@ -785,11 +789,13 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarFitxerRepositori;
     private javax.swing.JButton btnEliminarPortafoli;
     private javax.swing.JButton btnGuardaDades;
+    private javax.swing.JButton btnMarti;
     private javax.swing.JButton btnPause;
     private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnPlayFitxerRepositori;
     private javax.swing.JButton btnPlayPortafoli;
     private javax.swing.JButton btnPlayRepositori;
+    private javax.swing.JButton btnPol;
     private javax.swing.JButton btnRecuperaDades;
     private javax.swing.JButton btnSalta;
     private javax.swing.JCheckBox chkCiclica;
