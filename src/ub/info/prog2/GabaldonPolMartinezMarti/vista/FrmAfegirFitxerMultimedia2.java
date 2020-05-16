@@ -15,12 +15,16 @@ import ub.info.prog2.utils.ReproException;
 
 /**
  *
- * @author marti
+ * @author MartinezMartiGabaldonPol
  */
 public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
     private Controlador controlador;
+    
     /**
-     * Creates new form FrmAfegirFitxerMultimedia2
+     * Constructor del jDialog
+     * @param parent parent
+     * @param modal modal
+     * @param controlador controlador que se li entra per paràmetre 
      */
     public FrmAfegirFitxerMultimedia2(java.awt.Frame parent, boolean modal, Controlador controlador) {
         super(parent, modal);
@@ -261,6 +265,10 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbTipusFitxerActionPerformed
 
+    /**
+     * Tanca la finestra sense fer res
+     * @param evt event
+     */
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         //Tanca la finestra de dialeg
@@ -275,6 +283,10 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAutorActionPerformed
 
+    /**
+     * Obre el JFileChooser per triar un fitxer
+     * @param evt event
+     */
     private void btnSelecciona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecciona1ActionPerformed
         // TODO add your handling code here:
         File fitxer;
@@ -296,6 +308,10 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         
     }//GEN-LAST:event_btnSelecciona1ActionPerformed
 
+    /**
+     * Obre el JFileChooser per triar un fitxer
+     * @param evt event
+     */
     private void btnSelecciona2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecciona2ActionPerformed
         // TODO add your handling code here:
         File fitxer;
@@ -316,6 +332,10 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btnSelecciona2ActionPerformed
 
+    /**
+     * Afegeix el fitxer al repositori si no hi ha cap error, sinó el mostra mitjançant un quadre de diàleg
+     * @param evt event
+     */
     private void btnAcceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptarActionPerformed
         // TODO add your handling code here:
         //Tanca la finestra de dialeg
@@ -334,6 +354,10 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnAcceptarActionPerformed
 
+    /**
+     * Afegeix els camps depenent si s'ha triat imatge o àudio
+     * @param evt event
+     */
     private void btnAfegirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfegirActionPerformed
         // TODO add your handling code here:
         if(((String)cmbTipusFitxer.getSelectedItem()).equals("Imatge")){
@@ -394,6 +418,10 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
 
     }//GEN-LAST:event_txtMultius2KeyPressed
 
+    /**
+     * Es controla que no s'introdueixin caràcters que no siguin números
+     * @param evt event
+     */
     private void txtMultius2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMultius2KeyReleased
         // TODO add your handling code here:
         String value = txtMultius2.getText();
@@ -407,6 +435,10 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
         
     }//GEN-LAST:event_txtMultius2KeyReleased
 
+    /**
+     * Es controla que no s'introdueixin caràcters que no siguin números
+     * @param evt event
+     */
     private void txtMultius1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMultius1KeyReleased
         // TODO add your handling code here:
         String value = txtMultius1.getText();
@@ -421,15 +453,17 @@ public class FrmAfegirFitxerMultimedia2 extends javax.swing.JDialog {
 
     }//GEN-LAST:event_txtMultius1KeyReleased
 
+    /**
+     * Controla que si no està buit aquest camp, ni cap dels altres s'activarà el botó acceptar
+     * @param evt event
+     */
     private void txtAutorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAutorKeyReleased
         // TODO add your handling code here:
         btnAcceptar.setEnabled( !(txtMultius1.getText().equals("") || txtMultius2.getText().equals("") || txtAutor.getText().equals("") || txtCami.getText().equals("")));
         
     }//GEN-LAST:event_txtAutorKeyReleased
 
-    /**
-     * @param args the command line arguments
-     */
+
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

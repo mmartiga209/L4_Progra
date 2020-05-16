@@ -19,11 +19,12 @@ import javax.swing.JFileChooser;
 import javax.swing.ListSelectionModel;
 /**
  *
- * @author polg24
+ * @author MartinezMartiGabaldonPol
  */
 public class AplicacioUB4 extends javax.swing.JFrame {
 
     private Controlador controlador;
+    
     /**
      * Creates new form AplicacioUB4
      */
@@ -43,6 +44,9 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         this.setPreferredSize(new Dimension(screenSize.width * 7 / 8, screenSize.height * 7/8));
     }
     
+    /**
+     * Actualitza el desplegable de portafolis
+     */
     private void updateCmbPortafolis() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         Iterator<String> iter = controlador.getTitolsPortafolis().iterator();
@@ -54,22 +58,37 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         updateLstPortafoli();
     }
     
+    /**
+     * Activa o desactiva el botó d'eliminar un portafoli
+     */
     private void updateEliminarPortafoli() {
         btnEliminarPortafoli.setEnabled(controlador.getSizePortafolis() != 0);
     }
     
+    /**
+     * Activa o desactiva el botó d'eliminar un fitxer del repositori segons si el repositori està buit o no
+     */
     private void updateBtnEliminarFitxerRepositori() {
         btnEliminarFitxerRepositori.setEnabled(!lstRepositori.isSelectionEmpty());
     }
     
+    /**
+     * Activa o desactiva el botó d'eliminar un fitxer d'un portafoli segons si el portafoli està buit o no
+     */
     private void updateBtnEliminarFitxerPortafoli(){
         btnEliminarFitxerPortafoli.setEnabled(!lstPortafoli.isSelectionEmpty());
     }
     
+    /**
+     * Actualitza el botó d'afegir un fitxer a un portafoli segons si hi ha un fitxer del repositori seleccionat
+     */
     private void updateBtnAfegirFitxerPortafoli() {
         btnAfegirFitxerPortafoli.setEnabled(!lstRepositori.isSelectionEmpty() && cmbPortafolis.getItemCount() != 0);
     }
     
+    /**
+     * Actualitza la llista de fitxers del repositori
+     */
     private void updateLstRepositori() {
         DefaultListModel<String> model = new DefaultListModel<>();
         int size = controlador.getSizeRepositori();
@@ -79,6 +98,9 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         lstRepositori.setModel(model);
     }
     
+    /**
+     * Actualitza la llista de fitxers del portafoli seleccionat
+     */
     private void updateLstPortafoli() {
         DefaultListModel<String> model = new DefaultListModel<>();
         int size = controlador.getSizePortafoli((String)cmbPortafolis.getSelectedItem());
@@ -88,23 +110,38 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         lstPortafoli.setModel(model);
     }
     
+    /**
+     * Activa o desactiva el botó de reproduir un fitxer si s'està o no seleccionant un
+     */
     private void updateBtnPlayFitxerRepositori(){
         btnPlayFitxerRepositori.setEnabled(!lstRepositori.isSelectionEmpty());
     }
     
+    /**
+     * Activa o desactiva el botó de reproduir un portafoli segons si n'hi han o no
+     */
     private void updateBtnPlayPortafoli(){
         btnPlayPortafoli.setEnabled(controlador.getSizePortafolis() != 0);
         
     }
     
+    /**
+     * Activa o desactiva el botó de reproduir el repositori depenent si hi han fitxers
+     */
     private void updateBtnPlayRepositori(){
         btnPlayRepositori.setEnabled(controlador.getSizeRepositori()!= 0);
     }
     
+    /**
+     * Actualitza si hi ha marcada o no la reproducció cíclica
+     */
     private void updateChkCiclica(){
         chkCiclica.setSelected(controlador.getCiclica());
     }
     
+    /**
+     * Actualitza si hi ha marcada o no la reproducció reverse
+     */
     private void updateChkReverse(){
         chkReverse.setSelected(controlador.getReverse());
     }
@@ -454,11 +491,19 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * Ordena activar el botó de crear portafoli
+     * @param evt event
+     */
     private void txtTitolPortafoliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTitolPortafoliKeyReleased
         btnCrearPortafoli.setEnabled(!txtTitolPortafoli.getText().equals(""));
     }//GEN-LAST:event_txtTitolPortafoliKeyReleased
 
+    /**
+     * Assigna la funció de crear un portafoli del controlador al botó corresponent
+     * @param evt event
+     */
     private void btnCrearPortafoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPortafoliActionPerformed
         try {
             controlador.addPortafoli(txtTitolPortafoli.getText());
@@ -475,6 +520,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCrearPortafoliActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que elimina un protafoli seleccionat
+     * @param evt event
+     */
     private void btnEliminarPortafoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPortafoliActionPerformed
         try {                                                  
             controlador.removePortafoli((String)cmbPortafolis.getSelectedItem());
@@ -488,6 +537,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarPortafoliActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que afegeix un fitxer al repositori
+     * @param evt event
+     */
     private void btnAfegirFitxerRepositoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfegirFitxerRepositoriActionPerformed
         FrmAfegirFitxerMultimedia2 jDAfegir = new FrmAfegirFitxerMultimedia2(this, true, controlador);
         
@@ -501,6 +554,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnAfegirFitxerRepositoriActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que elimina un fitxer del repositori
+     * @param evt event
+     */
     private void btnEliminarFitxerRepositoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFitxerRepositoriActionPerformed
         try {
             controlador.removeFitxer(lstRepositori.getSelectedIndex());
@@ -515,12 +572,20 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEliminarFitxerRepositoriActionPerformed
 
+    /**
+     * Actualitza els botons en cas que la llista de fitxers del repositori canviï
+     * @param evt event
+     */
     private void lstRepositoriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstRepositoriValueChanged
         updateBtnEliminarFitxerRepositori();
         updateBtnPlayFitxerRepositori();
         updateBtnAfegirFitxerPortafoli();
     }//GEN-LAST:event_lstRepositoriValueChanged
 
+    /**
+     * Crida el mètode corresponent de controlador que afegeix un fitxer a un portafoli     
+     * @param evt event
+     */
     private void btnAfegirFitxerPortafoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfegirFitxerPortafoliActionPerformed
         try {
             controlador.addFitxer((String)cmbPortafolis.getSelectedItem(), lstRepositori.getSelectedIndex() + 1);
@@ -531,6 +596,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         updateLstPortafoli();
     }//GEN-LAST:event_btnAfegirFitxerPortafoliActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que guarda les dades a un fitxer d'elecció
+     * @param evt event
+     */
     private void btnGuardaDadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaDadesActionPerformed
         // TODO add your handling code here:
         File fitxer;
@@ -556,6 +625,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGuardaDadesActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que recupera les dades des d'un fitxer triat
+     * @param evt event
+     */
     private void btnRecuperaDadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperaDadesActionPerformed
         // TODO add your handling code here:
         File fitxer;
@@ -635,10 +708,18 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPolActionPerformed
 
+    /**
+     * Actualitza els fitxers del portafoli si es selecciona un altre
+     * @param evt event
+     */
     private void cmbPortafolisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPortafolisItemStateChanged
         updateLstPortafoli();
     }//GEN-LAST:event_cmbPortafolisItemStateChanged
 
+    /**
+     * Crida el mètode corresponent de controlador que reprodueix un fitxer del repositori
+     * @param evt event
+     */
     private void btnPlayFitxerRepositoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayFitxerRepositoriActionPerformed
         // TODO add your handling code here:
         try {
@@ -650,6 +731,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_btnPlayFitxerRepositoriActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que reprodueix el repositori sencer
+     * @param evt event
+     */
     private void btnPlayRepositoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayRepositoriActionPerformed
         // TODO add your handling code here:
         try{
@@ -661,6 +746,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_btnPlayRepositoriActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que elimina un fitxer d'un portafoli
+     * @param evt event
+     */
     private void btnEliminarFitxerPortafoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFitxerPortafoliActionPerformed
         // TODO add your handling code here:
         try {
@@ -674,11 +763,19 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         updateLstPortafoli();        
     }//GEN-LAST:event_btnEliminarFitxerPortafoliActionPerformed
 
+    /**
+     * Actualitza el botó d'elimianr fitxers del portafoli si es selecciona un fitxer
+     * @param evt event
+     */
     private void lstPortafoliValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPortafoliValueChanged
         // TODO add your handling code here:
         updateBtnEliminarFitxerPortafoli();
     }//GEN-LAST:event_lstPortafoliValueChanged
 
+    /**
+     * Crida el mètode corresponent de controlador que reprodueix el portafoli seleccionat
+     * @param evt event
+     */
     private void btnPlayPortafoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayPortafoliActionPerformed
         // TODO add your handling code here:
         try{
@@ -690,6 +787,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPlayPortafoliActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que segueix amb la reproducció
+     * @param evt event
+     */
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
         // TODO add your handling code here:
         try{
@@ -700,6 +801,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_btnPlayActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que pausa la reproducció
+     * @param evt event
+     */
     private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
         // TODO add your handling code here:
         try{
@@ -710,6 +815,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_btnPauseActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que atura la reproducció en curs
+     * @param evt event
+     */
     private void btnAturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAturaActionPerformed
         // TODO add your handling code here:
         try{
@@ -720,6 +829,10 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_btnAturaActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que fa salta al següent fitxer a reproduir
+     * @param evt event
+     */
     private void btnSaltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaltaActionPerformed
         // TODO add your handling code here:
         try{
@@ -734,11 +847,19 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lstRepositoriComponentAdded
 
+    /**
+     * Crida el mètode corresponent de controlador que canvia la reproducció de cíclica a no cíclica o viceversa
+     * @param evt event
+     */
     private void chkCiclicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCiclicaActionPerformed
         // TODO add your handling code here:
         controlador.changeCiclica();
     }//GEN-LAST:event_chkCiclicaActionPerformed
 
+    /**
+     * Crida el mètode corresponent de controlador que canvia el mode de reproducció reverse a no reverse o viceversa
+     * @param evt event
+     */
     private void chkReverseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkReverseActionPerformed
         // TODO add your handling code here:
         controlador.changeReverse();

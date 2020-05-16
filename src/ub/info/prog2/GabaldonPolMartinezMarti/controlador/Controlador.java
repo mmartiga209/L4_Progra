@@ -132,9 +132,9 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * Crida el mètode da dades que borra el portafoli amb el títol que se li entra per paràmetre
+     * Crida el mètode de dades que borra el portafoli amb el títol que se li entra per paràmetre
      * @param titol Títol del portafoli que es vol borrar
-     * @throws ReproException 
+     * @throws ReproException Excepció si no l'ha pogut borrar
      */
     @Override
     public void removePortafoli(String titol) throws ReproException{
@@ -198,7 +198,7 @@ public class Controlador implements InControlador {
 
     /**
      * Tanca la finestra de reproducció
-     * @throws ReproException 
+     * @throws ReproException Tira excepció si ja estava oberta
      */
     @Override
     public void closeFinestraReproductor() throws ReproException {
