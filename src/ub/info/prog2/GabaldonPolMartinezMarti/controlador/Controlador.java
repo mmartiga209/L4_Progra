@@ -283,6 +283,7 @@ public class Controlador implements InControlador {
      */
     public void changeCiclica() {
         dades.changeCiclica();
+        escoltador.changeCiclica();
     }
     
     /**
@@ -290,6 +291,7 @@ public class Controlador implements InControlador {
      */
     public void changeReverse() {
         dades.changeReverse();
+        escoltador.changeReverse();
     }
     
     /**

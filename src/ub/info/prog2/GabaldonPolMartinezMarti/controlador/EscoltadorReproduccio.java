@@ -158,5 +158,18 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     public void decrementReproduint() {
         reproduint--;
     }
-
+    
+    /**
+     * Mètode per canviar el tipus de reproducció cíclica
+     */
+    public void changeCiclica() {
+        reproduccioCiclica = !reproduccioCiclica;
+    }
+    
+    /**
+     * Mètode per canviar el tipus de reproducció reversa
+     */
+    public void changeReverse() {
+        reproduccioReverse = !reproduccioReverse;
+    }
 }
