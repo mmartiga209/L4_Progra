@@ -5,9 +5,9 @@
  */
 package ub.info.prog2.GabaldonPolMartinezMarti.vista;
 import java.awt.Color;
-import java.awt.Dimension;
+//import java.awt.Dimension;
 import java.io.File;
-import java.awt.Toolkit;
+//import java.awt.Toolkit;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Controlador;
@@ -43,6 +43,12 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         //this.setPreferredSize(new Dimension(screenSize.width * 7 / 8, screenSize.height * 7/8));
         this.getContentPane().setBackground(new Color(74,199,223));
+        try{
+            btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ub/info/prog2/GabaldonPolMartinezMarti/vista/play.png"))); // NOI18N
+        }
+        catch(java.lang.NullPointerException e){
+            
+        }
     }
     
     /**
@@ -181,8 +187,6 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         lblSeleccionarPortafoli = new javax.swing.JLabel();
         btnRecuperaDades = new javax.swing.JButton();
         btnGuardaDades = new javax.swing.JButton();
-        btnMarti = new javax.swing.JButton();
-        btnPol = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(242, 242, 242));
@@ -251,42 +255,39 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
-        chkCiclica.setText("Reproduccio Cíclica");
+        chkCiclica.setText("Cíclica");
+        chkCiclica.setActionCommand("Reproducció Cíclica");
         chkCiclica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkCiclicaActionPerformed(evt);
             }
         });
 
-        chkReverse.setText("Reproduccio Reverse");
+        chkReverse.setText("Reverse");
         chkReverse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkReverseActionPerformed(evt);
             }
         });
 
-        btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ub/info/prog2/GabaldonPolMartinezMarti/vista/play.png"))); // NOI18N
         btnPlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlayActionPerformed(evt);
             }
         });
 
-        btnPause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ub/info/prog2/GabaldonPolMartinezMarti/vista/pause.png"))); // NOI18N
         btnPause.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPauseActionPerformed(evt);
             }
         });
 
-        btnAtura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ub/info/prog2/GabaldonPolMartinezMarti/vista/stop.png"))); // NOI18N
         btnAtura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAturaActionPerformed(evt);
             }
         });
 
-        btnSalta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ub/info/prog2/GabaldonPolMartinezMarti/vista/salta.png"))); // NOI18N
         btnSalta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaltaActionPerformed(evt);
@@ -344,93 +345,71 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
-        btnMarti.setText("Boto Marti");
-        btnMarti.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMartiActionPerformed(evt);
-            }
-        });
-
-        btnPol.setText("Boto Pol");
-        btnPol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPolActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(btnPlay)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPause)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAfegirFitxerRepositori)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnEliminarFitxerRepositori)
-                                    .addComponent(btnEliminarFitxerPortafoli)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
+                                        .addGap(350, 350, 350)
+                                        .addComponent(lblTitolPortafoli)
+                                        .addGap(69, 69, 69))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(btnAfegirFitxerPortafoli)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnCrearPortafoli, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btnEliminarFitxerPortafoli, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(txtTitolPortafoli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btnPlayFitxerRepositori)
+                                                    .addComponent(btnPlayRepositori)
+                                                    .addComponent(btnPlayPortafoli))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(chkCiclica)
+                                                    .addComponent(chkReverse)))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnAtura)
-                                                .addGap(26, 26, 26)
-                                                .addComponent(btnSalta))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(btnRecuperaDades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btnGuardaDades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnPlayFitxerRepositori)
-                                            .addComponent(btnPlayRepositori)
-                                            .addComponent(btnPlayPortafoli)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(37, 37, 37)
-                                                .addComponent(chkCiclica))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblSeleccionarPortafoli))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAfegirFitxerPortafoli)
-                                    .addComponent(btnAfegirFitxerRepositori))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(txtTitolPortafoli, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnCrearPortafoli, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(373, 373, 373)
-                                .addComponent(chkReverse))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(347, 347, 347)
-                                .addComponent(lblTitolPortafoli))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(cmbPortafolis, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(188, 188, 188))))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(btnEliminarFitxerRepositori)
+                                                            .addComponent(btnRecuperaDades))
+                                                        .addGap(18, 18, 18)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(cmbPortafolis, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                                    .addComponent(lblSeleccionarPortafoli)
+                                                                    .addGap(3, 3, 3)))
+                                                            .addComponent(btnEliminarPortafoli, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                                    .addComponent(btnGuardaDades, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(0, 11, Short.MAX_VALUE)))
+                                        .addGap(18, 18, 18)))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnMarti)
-                            .addComponent(btnEliminarPortafoli)
-                            .addComponent(btnPol))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(391, 391, 391)
+                        .addComponent(btnPlay)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPause)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAtura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSalta)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -439,60 +418,64 @@ public class AplicacioUB4 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAtura)
-                            .addComponent(btnSalta))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRecuperaDades))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnGuardaDades)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(lblTitolPortafoli)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTitolPortafoli)
-                    .addComponent(btnAfegirFitxerRepositori))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAfegirFitxerPortafoli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCrearPortafoli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(27, 27, 27)
-                .addComponent(btnEliminarPortafoli)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnMarti)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnAfegirFitxerRepositori)
+                                        .addComponent(lblTitolPortafoli))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtTitolPortafoli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btnCrearPortafoli))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(20, 20, 20)
+                                            .addComponent(btnAfegirFitxerPortafoli)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lblSeleccionarPortafoli)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cmbPortafolis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btnEliminarPortafoli))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btnEliminarFitxerRepositori)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btnRecuperaDades)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnEliminarFitxerPortafoli)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnGuardaDades)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(chkCiclica)
+                                        .addComponent(btnPlayFitxerRepositori))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(chkReverse))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(4, 4, 4)
+                                            .addComponent(btnPlayRepositori)))
+                                    .addGap(32, 32, 32))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnPlayPortafoli)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(41, 41, 41)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnPlay, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAtura, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSalta, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(btnEliminarFitxerRepositori)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEliminarFitxerPortafoli))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(lblSeleccionarPortafoli)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPol)
-                .addGap(18, 18, 18)
-                .addComponent(cmbPortafolis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkReverse)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPlayFitxerRepositori)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPlay)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnPlayRepositori)
-                        .addGap(7, 7, 7)
-                        .addComponent(btnPlayPortafoli)
-                        .addGap(18, 18, 18)
-                        .addComponent(chkCiclica))
-                    .addComponent(btnPause))
-                .addGap(12, 12, 12))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnPause)))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -672,47 +655,6 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         }  
     }//GEN-LAST:event_btnRecuperaDadesActionPerformed
-
-    private void btnMartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMartiActionPerformed
-        try {
-            controlador.addImatge("C:\\Users\\marti\\Desktop\\Reproductor\\5e88a0ba2500003903058a57.jpeg", "Bad Bunny", ".jpeg", 1, 2);
-            controlador.addImatge("C:\\Users\\marti\\Desktop\\Reproductor\\1661714716010501_c5_720x720.jpeg", "Angels", ".png", 1, 2);
-            controlador.addImatge("C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", ".png", 1, 2);
-            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\Bad Bunny - A Tu Merced (Letra ) (1).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\5e88a0ba2500003903058a57.jpeg", "Bad Bunny", "08642", 45678);
-            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\C. Tangana - Antes de morirme feat. Rosalía (Video Oficial).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", "08642", 45678);
-            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\C. Tangana - De Pie (Audio) (GOEAR.ORG).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", "08642", 45678);
-            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\C. Tangana - Llorando en la Limo (Video Oficial).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\descarga.jpg", "C Tangana", "08642", 45678);
-            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\James Blake - Barefoot In The Park (feat. Rosalía).mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\James_Blake_630.jpg", "Rosalia", "08642", 45678);
-            controlador.addAudio("C:\\Users\\marti\\Desktop\\Reproductor\\Yves_Tumor_-_Gospel_For_A_New_Centurycom.mp3", "C:\\Users\\marti\\Desktop\\Reproductor\\James_Blake_630.jpg", "Yves", "08642", 45678);
-            updateLstRepositori();
-            updateBtnPlayRepositori();
-
-        }
-        catch (ReproException e) {
-            JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnMartiActionPerformed
-
-    private void btnPolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPolActionPerformed
-        try {
-            controlador.addAudio("/home/polg24/Desktop/did_it_again.mp3", "/home/polg24/Desktop/lil_teccasso.jpeg", "Sho", "08642", 45678);
-            controlador.addAudio("/home/polg24/Desktop/these_days.mp3", "/home/polg24/Desktop/these_days.jpeg", "Sho", "08642", 45678);
-            controlador.addAudio("/home/polg24/Desktop/hope.mp3", "/home/polg24/Desktop/x.jpg", "Sho", "08642", 45678);
-            controlador.addAudio("/home/polg24/Desktop/did_it_again.mp3", "/home/polg24/Desktop/lil_teccasso.jpeg", "Uno otro", "08642", 45678);
-            controlador.addAudio("/home/polg24/Desktop/these_days.mp3", "/home/polg24/Desktop/these_days.jpeg", "Bella chi", "08642", 45678);
-            controlador.addAudio("/home/polg24/Desktop/hope.mp3", "/home/polg24/Desktop/x.jpg", "una verga salvahe", "08642", 45678);
-            controlador.addImatge("/home/polg24/Desktop/Potato.jpg", "Sho", "un codec", 23, 45);
-            controlador.addImatge("/home/polg24/Desktop/bolas.png", "una verga salvahe", "un codec", 23, 455678);
-            
-            
-            updateLstRepositori();
-            updateBtnPlayRepositori();
-
-        }
-        catch (ReproException e) {
-            JOptionPane.showMessageDialog(this, e.toString(), "Error a l'afegir un fitxer a un Portafoli", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnPolActionPerformed
 
     /**
      * Actualitza els fitxers del portafoli si es selecciona un altre
@@ -916,13 +858,11 @@ public class AplicacioUB4 extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarFitxerRepositori;
     private javax.swing.JButton btnEliminarPortafoli;
     private javax.swing.JButton btnGuardaDades;
-    private javax.swing.JButton btnMarti;
     private javax.swing.JButton btnPause;
     private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnPlayFitxerRepositori;
     private javax.swing.JButton btnPlayPortafoli;
     private javax.swing.JButton btnPlayRepositori;
-    private javax.swing.JButton btnPol;
     private javax.swing.JButton btnRecuperaDades;
     private javax.swing.JButton btnSalta;
     private javax.swing.JCheckBox chkCiclica;
