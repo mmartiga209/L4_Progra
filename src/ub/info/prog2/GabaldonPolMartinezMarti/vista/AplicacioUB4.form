@@ -204,6 +204,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnAfegirFitxerRepositori">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Afegir un Fitxer al Repositori"/>
       </Properties>
       <Events>
@@ -212,6 +215,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnEliminarFitxerRepositori">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Eliminar Fitxer seleccionat del Repositori"/>
       </Properties>
       <Events>
@@ -220,6 +226,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCrearPortafoli">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Crear Portafoli"/>
       </Properties>
       <Events>
@@ -228,6 +237,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnEliminarPortafoli">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Eliminar Portafoli"/>
       </Properties>
       <Events>
@@ -236,6 +248,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAfegirFitxerPortafoli">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Afegir un Fitxer al Portafoli seleccionat"/>
       </Properties>
       <Events>
@@ -244,6 +259,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnEliminarFitxerPortafoli">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Eliminar Fitxer seleccionat d&apos;un Portafoli"/>
       </Properties>
       <Events>
@@ -252,6 +270,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPlayFitxerRepositori">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Reproduir el Fitxer seleccionat del Repositori"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
@@ -261,6 +282,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPlayPortafoli">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Reproduir el Portafoli seleccionat"/>
       </Properties>
       <Events>
@@ -269,6 +293,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPlayRepositori">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Reproduir el Repositori"/>
       </Properties>
       <Events>
@@ -401,6 +428,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnRecuperaDades">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Recupera dades des d&apos;un fitxer"/>
       </Properties>
       <Events>
@@ -409,6 +439,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGuardaDades">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="aa" green="aa" red="aa" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Guarda dades a un fitxer"/>
       </Properties>
       <Events>

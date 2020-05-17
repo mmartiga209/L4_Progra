@@ -43,12 +43,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         //this.setPreferredSize(new Dimension(screenSize.width * 7 / 8, screenSize.height * 7/8));
         this.getContentPane().setBackground(new Color(74,199,223));
-        try{
-            btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ub/info/prog2/GabaldonPolMartinezMarti/vista/play.png"))); // NOI18N
-        }
-        catch(java.lang.NullPointerException e){
-            
-        }
+        
     }
     
     /**
@@ -191,6 +186,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(242, 242, 242));
 
+        btnAfegirFitxerRepositori.setBackground(new java.awt.Color(170, 170, 170));
         btnAfegirFitxerRepositori.setText("Afegir un Fitxer al Repositori");
         btnAfegirFitxerRepositori.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,6 +194,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
+        btnEliminarFitxerRepositori.setBackground(new java.awt.Color(170, 170, 170));
         btnEliminarFitxerRepositori.setText("Eliminar Fitxer seleccionat del Repositori");
         btnEliminarFitxerRepositori.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +202,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
+        btnCrearPortafoli.setBackground(new java.awt.Color(170, 170, 170));
         btnCrearPortafoli.setText("Crear Portafoli");
         btnCrearPortafoli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,6 +210,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
+        btnEliminarPortafoli.setBackground(new java.awt.Color(170, 170, 170));
         btnEliminarPortafoli.setText("Eliminar Portafoli");
         btnEliminarPortafoli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,6 +218,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
+        btnAfegirFitxerPortafoli.setBackground(new java.awt.Color(170, 170, 170));
         btnAfegirFitxerPortafoli.setText("Afegir un Fitxer al Portafoli seleccionat");
         btnAfegirFitxerPortafoli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,6 +226,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
+        btnEliminarFitxerPortafoli.setBackground(new java.awt.Color(170, 170, 170));
         btnEliminarFitxerPortafoli.setText("Eliminar Fitxer seleccionat d'un Portafoli");
         btnEliminarFitxerPortafoli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,6 +234,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
+        btnPlayFitxerRepositori.setBackground(new java.awt.Color(170, 170, 170));
         btnPlayFitxerRepositori.setText("Reproduir el Fitxer seleccionat del Repositori");
         btnPlayFitxerRepositori.setToolTipText("");
         btnPlayFitxerRepositori.addActionListener(new java.awt.event.ActionListener() {
@@ -241,6 +243,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
+        btnPlayPortafoli.setBackground(new java.awt.Color(170, 170, 170));
         btnPlayPortafoli.setText("Reproduir el Portafoli seleccionat");
         btnPlayPortafoli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,6 +251,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
+        btnPlayRepositori.setBackground(new java.awt.Color(170, 170, 170));
         btnPlayRepositori.setText("Reproduir el Repositori");
         btnPlayRepositori.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -331,6 +335,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
 
         lblSeleccionarPortafoli.setText("Seleccionar Portafoli:");
 
+        btnRecuperaDades.setBackground(new java.awt.Color(170, 170, 170));
         btnRecuperaDades.setText("Recupera dades des d'un fitxer");
         btnRecuperaDades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,6 +343,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
             }
         });
 
+        btnGuardaDades.setBackground(new java.awt.Color(170, 170, 170));
         btnGuardaDades.setText("Guarda dades a un fitxer");
         btnGuardaDades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
