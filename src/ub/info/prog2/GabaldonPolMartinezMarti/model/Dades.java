@@ -292,6 +292,11 @@ public class Dades implements Serializable{
             
             while (iter.hasNext() && !trobat) {
                 if(iter.next().getTitol().equals(titol)) {
+                    PortafoliFitxersMultimedia p = portafolis.get(i);
+                    int size = p.getSize();
+                    for (int j = 0; j < size; j++) {
+                        p.removeFitxer(0);
+                    }
                     portafolis.remove(i);
                     trobat = true;
                 }

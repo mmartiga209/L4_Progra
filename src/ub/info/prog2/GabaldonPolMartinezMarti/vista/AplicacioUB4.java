@@ -184,7 +184,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
         btnPol = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(242, 241, 241));
+        setBackground(new java.awt.Color(242, 242, 242));
 
         btnAfegirFitxerRepositori.setText("Afegir un Fitxer al Repositori");
         btnAfegirFitxerRepositori.addActionListener(new java.awt.event.ActionListener() {
@@ -525,7 +525,7 @@ public class AplicacioUB4 extends javax.swing.JFrame {
      * @param evt event
      */
     private void btnEliminarPortafoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPortafoliActionPerformed
-        try {                                                  
+        try {
             controlador.removePortafoli((String)cmbPortafolis.getSelectedItem());
             updateCmbPortafolis();
             updateEliminarPortafoli();
